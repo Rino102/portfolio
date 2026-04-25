@@ -9,6 +9,7 @@ import { Certifications } from "@/components/sections/Certifications"
 import { Education } from "@/components/sections/Education"
 import { Testimonials } from "@/components/sections/Testimonials"
 import { Contact } from "@/components/sections/Contact"
+import { Competencies } from "@/components/sections/Competencies"
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <main>
         <Hero />
         <About />
+        <Competencies />
         <Skills />
         <Experience />
         <Projects />

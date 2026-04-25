@@ -329,8 +329,60 @@ export const EDUCATION: EducationEntry[] = [
   },
 ]
 
+export const PM_COMPETENCIES = [
+  {
+    icon: "🔄",
+    title: "Agile Methodology",
+    subtitle: "Scrum | Kanban",
+    description: "Driving iterative delivery through Agile frameworks, sprint planning, and continuous improvement cycles.",
+  },
+  {
+    icon: "🤝",
+    title: "Team Co-ordination",
+    subtitle: "Effective Collaboration",
+    description: "Orchestrating cross-functional teams with clear ownership, communication cadences, and shared accountability.",
+  },
+  {
+    icon: "📋",
+    title: "Project Handling",
+    subtitle: "End-to-End Delivery",
+    description: "Owning full project lifecycle — from requirements and scoping through development, QA, UAT, and launch.",
+  },
+  {
+    icon: "👥",
+    title: "Team Leadership",
+    subtitle: "Handling 15 Team Members",
+    description: "Leading engineering squads of up to 15, fostering a culture of ownership, growth, and high performance.",
+  },
+  {
+    icon: "💬",
+    title: "Client Communication",
+    subtitle: "Stakeholder Management",
+    description: "Building trust with clients and stakeholders through transparent reporting, proactive updates, and executive-level communication.",
+  },
+  {
+    icon: "📊",
+    title: "Weekly Progress",
+    subtitle: "Reporting & Updates",
+    description: "Maintaining delivery visibility with structured status reports, risk logs, and milestone tracking dashboards.",
+  },
+  {
+    icon: "💰",
+    title: "Budgeting",
+    subtitle: "Budget & Cost Control",
+    description: "Managing project financials with precision — effort estimation, resource allocation, and cost variance analysis.",
+  },
+  {
+    icon: "⚡",
+    title: "Handling Escalations",
+    subtitle: "Conflict Resolution",
+    description: "De-escalating delivery blockers, mediating team conflicts, and turning critical issues into structured action plans.",
+  },
+]
+
 export const NAV_LINKS = [
   { label: "About", href: "#about" },
+  { label: "Competencies", href: "#competencies" },
   { label: "Skills", href: "#skills" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },

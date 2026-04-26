@@ -1,6 +1,6 @@
-import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { Hero } from "@/components/sections/Hero"
+import { ScrollBannerAnimation } from "@/components/sections/ScrollBannerAnimation"
+import { HeroBanner } from "@/components/sections/HeroBanner"
 import { About } from "@/components/sections/About"
 import { Skills } from "@/components/sections/Skills"
 import { Experience } from "@/components/sections/Experience"
@@ -14,9 +14,10 @@ import { Competencies } from "@/components/sections/Competencies"
 export default function HomePage() {
   return (
     <>
-      <Navbar />
       <main>
-        <Hero />
+        
+        <HeroBanner />
+        <ScrollBannerAnimation />
         <About />
         <Competencies />
         <Skills />
@@ -24,7 +25,7 @@ export default function HomePage() {
         <Projects />
         <Certifications />
         <Education />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <Contact />
       </main>
       <Footer />

@@ -1,0 +1,48 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="modernGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="lightGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark: Stylized RR in a square frame -->
+  <g transform="translate(50, 100)">
+    <!-- Rounded square background -->
+    <rect x="0" y="0" width="200" height="200" rx="40" ry="40" fill="url(#modernGrad)"/>
+
+    <!-- Subtle architectural lines -->
+    <g opacity="0.2" stroke="#ffffff" stroke-width="1" fill="none">
+      <line x1="0" y1="100" x2="200" y2="100"/>
+      <line x1="100" y1="0" x2="100" y2="200"/>
+      <circle cx="100" cy="100" r="80"/>
+    </g>
+
+    <!-- Stacked/Interlocked RR design -->
+    <g transform="translate(40, 40)">
+      <!-- First R (white) -->
+      <path d="M 0 0 L 0 120 L 22 120 L 22 75 L 42 75 L 70 120 L 96 120 L 65 72 C 86 65 96 50 96 32 C 96 12 82 0 58 0 Z M 22 20 L 54 20 C 65 20 73 25 73 38 C 73 51 65 56 54 56 L 22 56 Z"
+            fill="#ffffff"/>
+      <!-- Second R (cyan accent, slightly offset) -->
+      <path d="M 25 0 L 25 120 L 47 120 L 47 75 L 67 75 L 95 120 L 121 120 L 90 72 C 111 65 121 50 121 32 C 121 12 107 0 83 0 Z M 47 20 L 79 20 C 90 20 98 25 98 38 C 98 51 90 56 79 56 L 47 56 Z"
+            fill="#06b6d4" opacity="0.85"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(290, 150)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#0f172a" letter-spacing="-1">RINO</text>
+    <text x="0" y="55" font-family="Arial, sans-serif" font-size="56" font-weight="300" fill="#3b82f6" letter-spacing="-1">ROBINSON</text>
+
+    <!-- Decorative line -->
+    <line x1="0" y1="75" x2="380" y2="75" stroke="url(#lightGrad)" stroke-width="2"/>
+
+    <!-- Tagline -->
+    <text x="0" y="100" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#64748b" letter-spacing="3">PMP • TECHNICAL ARCHITECT • FULL-STACK</text>
+  </g>
+</svg>

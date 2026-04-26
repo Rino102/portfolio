@@ -1,18 +1,19 @@
 import type { Metadata } from "next"
-import { Inter, Geist } from "next/font/google"
+import { Poppins, Open_Sans } from "next/font/google"
 import { ThemeProvider } from "@/components/providers/ThemeProvider"
 import "./globals.css"
 
-const inter = Inter({
-  variable: "--font-inter",
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
   display: "swap",
 })
 
-const geist = Geist({
-  variable: "--font-geist",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
@@ -117,7 +118,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${geist.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${openSans.variable} ${poppins.variable}`} suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"

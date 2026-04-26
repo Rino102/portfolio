@@ -24,7 +24,7 @@ export function TimelineItem({ entry, index, isLast }: TimelineItemProps) {
     >
       {/* Timeline line */}
       {!isLast && (
-        <div className="absolute left-[6px] top-7 h-[calc(100%-1.75rem)] w-px bg-gradient-to-b from-indigo-500/40 to-transparent" />
+        <div className="absolute left-[6px] top-7 h-[calc(100%-1.75rem)] w-px bg-gradient-to-b from-teal-500/40 to-transparent" />
       )}
 
       {/* Dot */}
@@ -37,12 +37,12 @@ export function TimelineItem({ entry, index, isLast }: TimelineItemProps) {
       {/* Content */}
       <div className="glass glass-hover min-w-0 flex-1 rounded-2xl p-6">
         <div className="flex flex-wrap items-start gap-2 mb-2">
-          <h3 className="text-base font-bold text-white md:text-lg">{entry.role}</h3>
+          <h3 className="text-base font-bold text-navy md:text-lg">{entry.role}</h3>
           {entry.badge === "CURRENT" && <Badge variant="current">Current Role</Badge>}
           {entry.badge === "PROMOTED" && <Badge variant="promoted">Promoted</Badge>}
         </div>
 
-        <p className="text-sm font-semibold text-indigo-400 mb-2">{entry.company}</p>
+        <p className="text-sm font-semibold text-teal-600 mb-2">{entry.company}</p>
 
         <div className="flex flex-wrap items-center gap-4 mb-4 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
@@ -55,12 +55,12 @@ export function TimelineItem({ entry, index, isLast }: TimelineItemProps) {
           </span>
         </div>
 
-        <p className="text-sm text-slate-400 mb-4 leading-relaxed">{entry.description}</p>
+        <p className="text-sm text-slate-600 mb-4 leading-relaxed">{entry.description}</p>
 
         <ul className="space-y-2">
           {entry.achievements.map((ach, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-slate-400">
-              <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-indigo-500" />
+            <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+              <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-teal-500" />
               <span className="leading-relaxed">{ach}</span>
             </li>
           ))}

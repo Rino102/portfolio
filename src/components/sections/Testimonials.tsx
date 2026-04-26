@@ -26,18 +26,18 @@ export function Testimonials() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {PLACEHOLDER_TESTIMONIALS.map((t) => (
               <div key={t.name} className="glass rounded-2xl p-6 blur-sm select-none">
-                <Quote className="h-6 w-6 text-indigo-400/40 mb-4" />
-                <p className="text-sm text-slate-400 leading-relaxed mb-4">
+                <Quote className="h-6 w-6 text-teal-500/40 mb-4" />
+                <p className="text-sm text-slate-600 leading-relaxed mb-4">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Working with Rino has
                   been an exceptional experience — technical expertise paired with clear
                   communication.
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-indigo-500/20 text-xs font-bold text-indigo-300">
+                  <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-teal-500/20 text-xs font-bold text-teal-700">
                     {t.initials}
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{t.name}</p>
+                    <p className="text-sm font-semibold text-navy">{t.name}</p>
                     <p className="text-xs text-slate-500">{t.title}</p>
                   </div>
                 </div>
@@ -53,11 +53,11 @@ export function Testimonials() {
             viewport={{ once: true }}
             className="absolute inset-0 flex flex-col items-center justify-center gap-3"
           >
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-[#0f172a]/90 backdrop-blur-sm">
-              <Lock className="h-6 w-6 text-slate-500" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-slate-200 bg-[#f8f9fa]/90 backdrop-blur-sm">
+              <Lock className="h-6 w-6 text-slate-400" />
             </div>
-            <div className="rounded-xl border border-white/8 bg-[#0f172a]/90 px-6 py-3 text-center backdrop-blur-sm">
-              <p className="text-sm font-semibold text-white">Testimonials Coming Soon</p>
+            <div className="rounded-xl border border-slate-200 bg-[#f8f9fa]/90 px-6 py-3 text-center backdrop-blur-sm">
+              <p className="text-sm font-semibold text-navy">Testimonials Coming Soon</p>
               <p className="text-xs text-slate-500 mt-0.5">Being collected from collaborators</p>
             </div>
           </motion.div>

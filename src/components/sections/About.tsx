@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { SectionHeader } from "@/components/ui/SectionHeader"
 import { StatCard } from "@/components/ui/StatCard"
 import { ABOUT_NARRATIVE, ABOUT_METRICS } from "@/data/resume"
-import { slideInLeft, staggerContainer } from "@/hooks/useAnimationVariants"
+import { fadeInUp, slideInLeft, staggerContainer } from "@/hooks/useAnimationVariants"
 
 const STRENGTHS = [
   { icon: "🏗️", label: "System Architecture", desc: "Scalable, secure, maintainable architectures for complex applications" },
@@ -32,24 +32,13 @@ export function About() {
           >
             <div className="space-y-4">
               {ABOUT_NARRATIVE.split("\n\n").map((para, i) => (
-                <p key={i} className="text-base leading-relaxed text-slate-400">
+                <p key={i} className="text-base leading-relaxed text-slate-600">
                   {para}
                 </p>
               ))}
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {STRENGTHS.map((s) => (
-                <div
-                  key={s.label}
-                  className="glass rounded-xl p-4"
-                >
-                  <p className="mb-1 text-base">{s.icon}</p>
-                  <p className="text-sm font-semibold text-white mb-1">{s.label}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
+           
           </motion.div>
 
           {/* Right: Metric cards */}
@@ -65,6 +54,26 @@ export function About() {
             ))}
           </motion.div>
         </div>
+
+        <motion.div
+            variants={fadeInUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {STRENGTHS.map((s) => (
+                <div
+                  key={s.label}
+                  className="glass rounded-xl p-4"
+                >
+                  <p className="mb-1 text-base">{s.icon}</p>
+                  <p className="text-sm font-semibold text-navy mb-1">{s.label}</p>
+                  <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+            </motion.div>
       </div>
     </section>
   )

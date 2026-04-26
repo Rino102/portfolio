@@ -28,8 +28,8 @@ export function CertCard({ cert }: CertCardProps) {
         <div
           className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl ${
             isCert
-              ? "bg-amber-500/15 text-amber-400"
-              : "bg-indigo-500/15 text-indigo-400"
+              ? "bg-gold-400/15 text-gold-500"
+              : "bg-teal-500/15 text-teal-600"
           }`}
         >
           <Icon className="h-5 w-5" />
@@ -43,9 +43,9 @@ export function CertCard({ cert }: CertCardProps) {
       </div>
 
       <div>
-        <h3 className="text-base font-bold text-white leading-snug mb-1">{cert.title}</h3>
-        <p className="text-xs font-semibold text-indigo-400 mb-3">{cert.issuer}</p>
-        <p className="text-sm text-slate-400 leading-relaxed">{cert.description}</p>
+        <h3 className="text-base font-bold text-navy leading-snug mb-1">{cert.title}</h3>
+        <p className="text-xs font-semibold text-teal-600 mb-3">{cert.issuer}</p>
+        <p className="text-sm text-slate-600 leading-relaxed">{cert.description}</p>
       </div>
 
       {cert.credentialUrl && (
@@ -53,7 +53,7 @@ export function CertCard({ cert }: CertCardProps) {
           href={cert.credentialUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 transition-colors"
+          className="mt-auto inline-flex items-center gap-1.5 text-xs text-teal-600 hover:text-teal-500 transition-colors"
         >
           View Credential <ExternalLink className="h-3 w-3" />
         </a>

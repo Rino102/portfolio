@@ -15,7 +15,7 @@ export function Skills() {
   return (
     <section id="skills" className="section-py relative">
       {/* Subtle bg accent */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(99,102,241,0.05),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(0,168,181,0.07),transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader
@@ -40,7 +40,7 @@ export function Skills() {
                 "rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 focus-ring",
                 activeTab === cat.label
                   ? "skill-tab-active"
-                  : "border-white/8 bg-white/4 text-slate-400 hover:border-white/16 hover:text-white"
+                  : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-navy"
               )}
             >
               {cat.label}

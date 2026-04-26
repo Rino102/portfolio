@@ -9,7 +9,7 @@ import { staggerContainer } from "@/hooks/useAnimationVariants"
 export function Projects() {
   return (
     <section id="projects" className="section-py relative">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(99,102,241,0.06),transparent)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(0,168,181,0.08),transparent)]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader

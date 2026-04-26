@@ -31,25 +31,25 @@ export function SectionHeader({
           align === "center" && "justify-center"
         )}
       >
-        <span className="h-px w-8 bg-indigo-500/60" />
-        <span className="text-xs font-semibold tracking-widest text-indigo-400 uppercase">
+        <span className="h-px w-8 bg-teal-500/60" />
+        <span className="text-xs font-semibold tracking-widest text-teal-600 uppercase">
           {title}
         </span>
-        <span className="h-px w-8 bg-indigo-500/60" />
+        <span className="h-px w-8 bg-teal-500/60" />
       </div>
       <h2
         className={cn(
-          "text-3xl font-bold text-white md:text-4xl lg:text-5xl",
+          "text-3xl font-bold text-navy md:text-4xl lg:text-5xl",
           align === "center" && "mx-auto"
         )}
-        style={{ fontFamily: "var(--font-geist, var(--font-inter))" }}
+        style={{ fontFamily: "var(--font-poppins, var(--font-open-sans))" }}
       >
         {title}
       </h2>
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base leading-relaxed text-slate-400 md:text-lg",
+            "mt-4 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg",
             align === "center" && "mx-auto"
           )}
         >

@@ -14,6 +14,8 @@ export const PERSONAL: ContactInfo = {
   phone: "+91 8012828581",
   linkedin: "in/rinorobinson",
   linkedinUrl: "https://linkedin.com/in/rinorobinson",
+  github: "Rino102",
+  githubUrl: "https://github.com/Rino102",
   location: "Chennai, Tamil Nadu, India",
 }
 
@@ -96,8 +98,6 @@ export const SKILLS: SkillCategory[] = [
       { name: "MongoDB" },
       { name: "PostgreSQL" },
       { name: "MySQL" },
-      { name: "Redis" },
-      { name: "Database Optimization" },
       { name: "Schema Design" },
       { name: "Data Migration" },
     ],
@@ -124,6 +124,7 @@ export const SKILLS: SkillCategory[] = [
       { name: "SendGrid" },
       { name: "SteadyMD" },
       { name: "Freshworks API" },
+      { name: "Rocketlane API" },
       { name: "Third-party Integrations" },
     ],
   },
@@ -165,7 +166,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   },
   {
     company: "Makoitlab",
-    role: "Team Lead",
+    role: "Technical Team Lead",
     badge: "PROMOTED",
     startDate: "Dec 2020",
     endDate: "Apr 2025",
@@ -183,6 +184,7 @@ export const EXPERIENCE: ExperienceEntry[] = [
   {
     company: "TechAffinity Global Pvt Ltd",
     role: "Senior UI Engineer",
+    badge: "PROMOTED",
     startDate: "Nov 2017",
     endDate: "Nov 2020",
     location: "Chennai, India",

@@ -9,7 +9,7 @@ const FRAME_COUNT = 193
 function frameSrc(index: number) {
   
   const n = String(index).padStart(5, "0");
-  return `/banner/${n}.png`;
+  return `/banner/${n}.jpg`;
 }
 
 function sv(v: MotionValue<string>): MotionValue<string | number> {

@@ -265,7 +265,7 @@ export function HeroBanner() {
                 <Mail className="h-4 w-4" />
                 Contact Me
               </a>
-              <a
+              {/* <a
                 href="/resume-rino-robinson.pdf"
                 download="Rino_Robinson_Resume.pdf"
                 className="inline-flex items-center gap-2 rounded-lg border px-6 py-3 text-sm font-semibold transition-all hover:bg-teal-500/10"
@@ -273,7 +273,7 @@ export function HeroBanner() {
               >
                 <Download className="h-4 w-4" />
                 Download Resume
-              </a>
+              </a> */}
             </div>
           </div>
         </motion.div>

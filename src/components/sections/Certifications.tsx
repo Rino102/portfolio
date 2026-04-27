@@ -8,8 +8,10 @@ import { staggerContainer } from "@/hooks/useAnimationVariants"
 
 export function Certifications() {
   return (
-    <section id="certifications" className="section-py relative">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="certifications" className="section-py relative bg-[#fffcf0] overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(192,159,64,0.12),transparent)]" />
+      <div className="pointer-events-none absolute -bottom-10 right-0 h-64 w-64 rounded-full bg-teal-500/10 blur-[80px]" />
+      <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader
           title="Certifications & Speaking"
           subtitle="Globally recognized credentials and industry speaking engagements."

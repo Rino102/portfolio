@@ -41,7 +41,7 @@ export function AnimatedCounter({ value, label, delay = 0 }: AnimatedCounterProp
 
   return (
     <div ref={ref} className="flex flex-col items-center gap-1 text-center">
-      <span className="text-3xl font-bold text-white md:text-4xl" style={{ fontFamily: "var(--font-geist, sans-serif)" }}>
+      <span className="text-3xl font-bold text-navy md:text-4xl" style={{ fontFamily: "var(--font-poppins, sans-serif)" }}>
         {isText ? value : `${count}${suffix}`}
       </span>
       <span className="text-xs text-slate-500 uppercase tracking-widest font-medium">{label}</span>

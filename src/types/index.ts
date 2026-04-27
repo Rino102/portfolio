@@ -3,6 +3,8 @@ export interface ContactInfo {
   phone: string
   linkedin: string
   linkedinUrl: string
+  github: string
+  githubUrl: string
   location: string
 }
 

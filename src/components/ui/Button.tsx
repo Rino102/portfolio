@@ -30,10 +30,10 @@ export function Button({
 
   const variants = {
     primary:
-      "bg-indigo-500 hover:bg-indigo-400 text-white shadow-[0_0_24px_rgba(99,102,241,0.3)] hover:shadow-[0_0_32px_rgba(99,102,241,0.5)]",
+      "bg-teal-500 hover:bg-teal-400 text-white shadow-[0_0_24px_rgba(0,168,181,0.3)] hover:shadow-[0_0_32px_rgba(0,168,181,0.5)]",
     outline:
-      "border border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/10 hover:border-indigo-400",
-    ghost: "text-slate-400 hover:text-white hover:bg-white/5",
+      "border border-teal-500/50 text-teal-600 hover:bg-teal-500/10 hover:border-teal-400",
+    ghost: "text-slate-500 hover:text-navy hover:bg-navy/5",
   }
 
   const sizes = {

@@ -83,7 +83,7 @@ export function ScrollBannerAnimation() {
     if (isMobile) return
     const images = Array.from({ length: FRAME_COUNT }, (_, i) => {
       const img = new Image()
-      img.src = frameSrc(i)
+      img.src = frameSrc(i+1)
       img.onload = () => {
         if (i === 0) drawFrame(0)
       }

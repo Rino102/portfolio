@@ -22,7 +22,7 @@ export default function HomePage() {
         <Competencies />
         <Skills />
         <Experience />
-        <Projects />
+        {/* <Projects /> */}
         <Certifications />
         <Education />
         {/* <Testimonials /> */}

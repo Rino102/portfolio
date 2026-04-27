@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server"
 import { contactSchema } from "@/lib/validations"
-import { resend } from "@/lib/resend"
+import { Resend } from "resend"
 
 export async function POST(req: NextRequest) {
   let body: unknown
+
   try {
     body = await req.json()
   } catch {
@@ -19,6 +20,10 @@ export async function POST(req: NextRequest) {
   }
 
   const { name, email, subject, message } = parsed.data
+
+  // ✅ IMPORTANT: initialize here
+  const resend = new Resend(process.env.RESEND_API_KEY)
+
   const contactEmail = process.env.CONTACT_EMAIL ?? "rlrino102@gmail.com"
 
   try {
@@ -26,7 +31,7 @@ export async function POST(req: NextRequest) {
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: [contactEmail],
       replyTo: email,
-      subject: `[Portfolio] ${subject}`,
+      subject: `Rino - PM - Enquiry - ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
           <h2 style="color: #6366f1; margin-bottom: 24px;">New Message from Portfolio</h2>
@@ -57,10 +62,10 @@ export async function POST(req: NextRequest) {
 
     if (error) {
       console.error("Resend error:", error)
-      return NextResponse.json({ error: "Failed to send message. Please try again." }, { status: 500 })
+      return NextResponse.json({ error: "Failed to send message" }, { status: 500 })
     }
 
-    return NextResponse.json({ success: true }, { status: 200 })
+    return NextResponse.json({ success: true })
   } catch (err) {
     console.error("Contact route error:", err)
     return NextResponse.json({ error: "Internal server error" }, { status: 500 })

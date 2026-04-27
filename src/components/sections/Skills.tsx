@@ -13,15 +13,16 @@ export function Skills() {
   const activeCategory = SKILLS.find((c) => c.label === activeTab) ?? SKILLS[0]!
 
   return (
-    <section id="skills" className="section-py relative">
-      {/* Subtle bg accent */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(0,168,181,0.07),transparent)]" />
+    <section id="skills" className="section-py relative bg-[#0d1a2e] pattern-dots-dark overflow-hidden">
+      <div className="pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-teal-500/15 blur-[100px]" />
+      <div className="pointer-events-none absolute -top-10 left-0 h-64 w-64 rounded-full bg-orange-500/10 blur-[80px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader
           title="Skills & Expertise"
           subtitle="A broad technology foundation built over 11+ years of hands-on delivery."
           align="center"
+          dark
         />
 
         {/* Tab list */}
@@ -39,8 +40,8 @@ export function Skills() {
               className={cn(
                 "rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 focus-ring",
                 activeTab === cat.label
-                  ? "skill-tab-active"
-                  : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:text-navy"
+                  ? "border-teal-400/60 bg-teal-500/20 text-teal-300"
+                  : "border-white/15 bg-white/6 text-white/60 hover:border-teal-400/50 hover:text-white"
               )}
             >
               {cat.label}
@@ -65,12 +66,15 @@ export function Skills() {
             >
               {activeCategory.skills.map((skill) => (
                 <motion.div key={skill.name} variants={fadeInUp}>
-                  <SkillPill name={skill.name} />
+                  <SkillPill
+                    name={skill.name}
+                    className="border-white/15 bg-white/6 text-white/60 hover:border-teal-400/40 hover:bg-teal-500/10 hover:text-teal-300"
+                  />
                 </motion.div>
               ))}
             </motion.div>
 
-            <p className="mt-8 text-center text-xs text-slate-600">
+            <p className="mt-8 text-center text-xs text-white/50">
               {activeCategory.skills.length} technologies in {activeTab}
             </p>
           </motion.div>

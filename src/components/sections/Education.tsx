@@ -8,8 +8,9 @@ import { staggerContainer, scaleIn } from "@/hooks/useAnimationVariants"
 
 export function Education() {
   return (
-    <section id="education" className="section-py relative">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_50%_100%,rgba(0,168,181,0.07),transparent)]" />
+    <section id="education" className="section-py relative bg-[#f0fbfc] overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,168,181,0.18),transparent)]" />
+      <div className="pointer-events-none absolute -bottom-10 right-0 h-64 w-64 rounded-full bg-gold-400/8 blur-[80px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader

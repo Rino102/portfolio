@@ -1,6 +1,7 @@
 "use client"
 
 import { useRef, useState } from "react"
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 import {
   Activity, Users, Briefcase, Users2,
   MessageCircle, Calendar, Calculator, AlertTriangle,
@@ -41,7 +42,7 @@ const TECH_SKILLS = [
 
 const IMPACT_STATS = [
   { value: "11+",  label: "Years Experience",   desc: "Growing from frontend to architect",   Icon: Clock,      accent: "#00A8B5" },
-  { value: "15+",  label: "Projects Delivered", desc: "Healthcare, SaaS & enterprise",        Icon: Target,     accent: "#1A365D" },
+  { value: "40+",  label: "Projects Delivered", desc: "Healthcare, SaaS & enterprise",        Icon: Target,     accent: "#1A365D" },
   { value: "25%",  label: "Faster Delivery",    desc: "Agile transformation results",         Icon: TrendingUp, accent: "#FF6F00" },
   { value: "PMP®", label: "Certified",          desc: "Project Management Professional",      Icon: Award,      accent: "#C09F40" },
 ]
@@ -56,6 +57,7 @@ function sv(v: MotionValue<string>): MotionValue<string | number> {
 }
 
 export function HeroBanner() {
+  const isDesktop = useMediaQuery("(min-width: 1100px)")
   const [current, setCurrent] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
   const currentRef = useRef(0)
@@ -84,25 +86,24 @@ export function HeroBanner() {
   })
 
   return (
-    <section ref={sectionRef} style={{ height: "300vh" }}>
+    <section ref={sectionRef} className="desktop:h-[300vh]" >
       <div
-        className="sticky top-0 relative overflow-hidden"
-        style={{ height: "100vh" }}
+        className="relative overflow-hidden desktop:sticky desktop:top-0 desktop:h-[100vh]"
       >
 
         {/* ── SLIDE 1 — Project Manager — z:1 (bottom) ─────────── */}
         <motion.div
-          style={{ y: y1 }}
-          className="absolute inset-0 z-[1] flex overflow-hidden bg-[#F8F9FA]"
+          style={{ y: isDesktop ? y1 : 0 }}
+          className="desktop:absolute desktop:inset-0 z-[1] flex overflow-hidden bg-[#F8F9FA]"
         >
           {/* Geometric background shapes */}
-          <picture className="absolute inset-0 h-full w-full">
-            <source media="(min-width: 1024px)" srcSet="/image.png" />
+          <picture className="desktop:absolute desktop:inset-0 h-full w-full">
+            <source media="(min-width: 1024px)" srcSet="/banner2.png" />
             <source media="(min-width: 768px)" srcSet="/tablet-banner.png" />
             <img
               src="/mobile-banner.png"
               alt="Rino Robinson — Project Manager"
-              className="h-full w-full object-cover object-right"
+              className="w-full h-auto desktop:h-full desktop:object-cover object-right"
               fetchPriority="high"
             />
           </picture>
@@ -110,8 +111,8 @@ export function HeroBanner() {
 
         {/* ── SLIDE 2 — Technical Architect — z:2 ──────────────── */}
         <motion.div
-          style={{ y: y2, background: "#1A365D" }}
-          className="absolute inset-0 z-[2] flex items-center justify-center overflow-hidden"
+          style={{ y: isDesktop ? y2 : 0, background: "#1A365D" }}
+          className="desktop:absolute desktop:inset-0 z-[2] flex items-center justify-center overflow-hidden"
         >
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div
@@ -176,7 +177,7 @@ export function HeroBanner() {
             <div className="flex flex-wrap items-center justify-center gap-10">
               {[
                 { v: "11+", l: "Years" },
-                { v: "15+", l: "Projects" },
+                { v: "40+", l: "Projects" },
                 { v: "MERN", l: "Stack" },
                 { v: "AI",   l: "Integrated" },
               ].map(({ v, l }) => (
@@ -191,12 +192,12 @@ export function HeroBanner() {
 
         {/* ── SLIDE 3 — Impact & Achievements — z:3 (top) ─────── */}
         <motion.div
-          style={{ y: y3 }}
-          className="absolute inset-0 z-[3] flex items-center justify-center overflow-hidden bg-[#F8F9FA]"
+          style={{ y: isDesktop ? y3 : 0 }}
+          className="desktop:absolute desktop:inset-0 z-[3] flex items-center justify-center overflow-hidden bg-[#F8F9FA]"
         >
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div
-              className="absolute left-1/2 top-0 h-[500px] w-[700px] -translate-x-1/2"
+              className="desktop:absolute desktop:left-1/2 desktop:top-0 h-[500px] w-[700px] -translate-x-1/2"
               style={{
                 background: "radial-gradient(ellipse at 50% 0%, rgba(0,168,181,0.10), transparent 70%)",
               }}
@@ -278,7 +279,7 @@ export function HeroBanner() {
         </motion.div>
 
         {/* ── Dot indicator — always on top (z:20) ─────────────── */}
-        <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
+        {/* <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 items-center gap-2">
           {Array.from({ length: SLIDE_COUNT }).map((_, i) => (
             <div
               key={i}
@@ -294,7 +295,7 @@ export function HeroBanner() {
               }}
             />
           ))}
-        </div>
+        </div> */}
 
       </div>
     </section>

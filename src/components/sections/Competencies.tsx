@@ -8,8 +8,10 @@ import { staggerContainer, scaleIn, fadeInUp } from "@/hooks/useAnimationVariant
 
 export function Competencies() {
   return (
-    <section id="competencies" className="section-py relative">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(0,168,181,0.08),transparent)]" />
+    <section id="competencies" className="section-py relative bg-[#fff9f5] pattern-dots-light overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(0,168,181,0.14),transparent)]" />
+      <div className="pointer-events-none absolute -top-20 right-0 h-72 w-72 rounded-full bg-orange-500/10 blur-[90px]" />
+      <div className="pointer-events-none absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-gold-400/10 blur-[80px]" />
 
       <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react"
 import { motion, useScroll, useTransform, useMotionValueEvent, type MotionValue } from "framer-motion"
+import { useMediaQuery } from "@/hooks/useMediaQuery"
 
 const FRAME_COUNT = 193
 
@@ -29,6 +30,8 @@ function drawCover(
 }
 
 export function ScrollBannerAnimation() {
+  const isMobile = useMediaQuery("(max-width: 1099px)")
+
   const containerRef = useRef<HTMLDivElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -61,6 +64,7 @@ export function ScrollBannerAnimation() {
 
   /* Size canvas to the wrapper via ResizeObserver */
   useEffect(() => {
+    if (isMobile) return
     const wrapper = wrapperRef.current
     if (!wrapper) return
     const ro = new ResizeObserver(() => {
@@ -72,10 +76,11 @@ export function ScrollBannerAnimation() {
     })
     ro.observe(wrapper)
     return () => ro.disconnect()
-  }, [drawFrame, frameIndex])
+  }, [drawFrame, frameIndex, isMobile])
 
   /* Preload all frames; draw frame 0 as soon as it's ready */
   useEffect(() => {
+    if (isMobile) return
     const images = Array.from({ length: FRAME_COUNT }, (_, i) => {
       const img = new Image()
       img.src = frameSrc(i)
@@ -85,11 +90,26 @@ export function ScrollBannerAnimation() {
       return img
     })
     imagesRef.current = images
-  }, [drawFrame])
+  }, [drawFrame, isMobile])
 
   useMotionValueEvent(frameIndex, "change", (latest) => {
     drawFrame(Math.round(latest))
   })
+
+  if (isMobile) {
+    return (
+      <section className="bg-[#0d0d0d] py-10 px-4">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
+          <img
+            src="/banner/00193.png"
+            alt="Showcase banner"
+            className="block w-full h-auto"
+            loading="lazy"
+          />
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section
@@ -113,7 +133,7 @@ export function ScrollBannerAnimation() {
             position: "relative",
             overflow: "hidden",
           }}
-          className="mx-4 sm:mx-6 md:mx-8 lg:mx-12 h-[60vh] sm:h-[72vh] md:h-[80vh] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
+          className="mx-4 sm:mx-6 md:mx-8 lg:mx-12 aspect-video max-h-[80vh] shadow-[0_32px_80px_rgba(0,0,0,0.6)]"
         >
           <canvas
             ref={canvasRef}

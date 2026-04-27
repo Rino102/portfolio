@@ -15,11 +15,17 @@ const STRENGTHS = [
 
 export function About() {
   return (
-    <section id="about" className="section-py relative">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="about" className="section-py relative bg-[#0d1628] pattern-dots-dark overflow-hidden">
+      {/* Teal ambient glow — top right */}
+      <div className="pointer-events-none absolute -top-32 right-0 h-[480px] w-[480px] rounded-full bg-teal-500/20 blur-[120px]" />
+      {/* Orange ambient glow — bottom left */}
+      <div className="pointer-events-none absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-orange-500/15 blur-[100px]" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
         <SectionHeader
           title="About Me"
           subtitle="A decade of building. A career of growing. A mindset of shipping."
+          dark
         />
 
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
@@ -32,13 +38,11 @@ export function About() {
           >
             <div className="space-y-4">
               {ABOUT_NARRATIVE.split("\n\n").map((para, i) => (
-                <p key={i} className="text-base leading-relaxed text-slate-600">
+                <p key={i} className="text-base leading-relaxed text-white/70">
                   {para}
                 </p>
               ))}
             </div>
-
-           
           </motion.div>
 
           {/* Right: Metric cards */}
@@ -50,30 +54,30 @@ export function About() {
             className="grid grid-cols-2 gap-4 content-start"
           >
             {ABOUT_METRICS.map((metric, i) => (
-              <StatCard key={metric.label} metric={metric} index={i} />
+              <StatCard key={metric.label} metric={metric} index={i} dark />
             ))}
           </motion.div>
         </div>
 
         <motion.div
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-             <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {STRENGTHS.map((s) => (
-                <div
-                  key={s.label}
-                  className="glass rounded-xl p-4"
-                >
-                  <p className="mb-1 text-base">{s.icon}</p>
-                  <p className="text-sm font-semibold text-navy mb-1">{s.label}</p>
-                  <p className="text-xs text-slate-500 leading-relaxed">{s.desc}</p>
-                </div>
-              ))}
-            </div>
-            </motion.div>
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {STRENGTHS.map((s) => (
+              <div
+                key={s.label}
+                className="dark-glass dark-glass-hover rounded-xl p-4"
+              >
+                <p className="mb-1 text-base">{s.icon}</p>
+                <p className="text-sm font-semibold text-white mb-1">{s.label}</p>
+                <p className="text-xs text-white/60 leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -9,6 +9,7 @@ interface SectionHeaderProps {
   subtitle?: string
   align?: "left" | "center"
   className?: string
+  dark?: boolean
 }
 
 export function SectionHeader({
@@ -16,6 +17,7 @@ export function SectionHeader({
   subtitle,
   align = "left",
   className,
+  dark = false,
 }: SectionHeaderProps) {
   return (
     <motion.div
@@ -31,15 +33,16 @@ export function SectionHeader({
           align === "center" && "justify-center"
         )}
       >
-        <span className="h-px w-8 bg-teal-500/60" />
-        <span className="text-xs font-semibold tracking-widest text-teal-600 uppercase">
+        <span className={cn("h-px w-8", dark ? "bg-teal-400/50" : "bg-teal-500/60")} />
+        <span className={cn("text-xs font-semibold tracking-widest uppercase", dark ? "text-teal-400" : "text-teal-600")}>
           {title}
         </span>
-        <span className="h-px w-8 bg-teal-500/60" />
+        <span className={cn("h-px w-8", dark ? "bg-teal-400/50" : "bg-teal-500/60")} />
       </div>
       <h2
         className={cn(
-          "text-3xl font-bold text-navy md:text-4xl lg:text-5xl",
+          "text-3xl font-bold md:text-4xl lg:text-5xl",
+          dark ? "text-white" : "text-navy",
           align === "center" && "mx-auto"
         )}
         style={{ fontFamily: "var(--font-poppins, var(--font-open-sans))" }}
@@ -49,7 +52,8 @@ export function SectionHeader({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 max-w-2xl text-base leading-relaxed text-slate-600 md:text-lg",
+            "mt-4 max-w-2xl text-base leading-relaxed md:text-lg",
+            dark ? "text-white/60" : "text-slate-600",
             align === "center" && "mx-auto"
           )}
         >

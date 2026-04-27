@@ -10,12 +10,12 @@ import { Education } from "@/components/sections/Education"
 import { Testimonials } from "@/components/sections/Testimonials"
 import { Contact } from "@/components/sections/Contact"
 import { Competencies } from "@/components/sections/Competencies"
+import { FloatingNav } from "@/components/ui/FloatingNav"
 
 export default function HomePage() {
   return (
     <>
       <main>
-        
         <HeroBanner />
         <ScrollBannerAnimation />
         <About />
@@ -29,6 +29,7 @@ export default function HomePage() {
         <Contact />
       </main>
       <Footer />
+      <FloatingNav />
     </>
   )
 }

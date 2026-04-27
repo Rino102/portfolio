@@ -32,7 +32,7 @@ What sets me apart is my dual fluency: I think like an architect and operate lik
 
 export const STATS: Stat[] = [
   { value: "11+", label: "Years Experience" },
-  { value: "15+", label: "Projects Delivered" },
+  { value: "40+", label: "Projects Delivered" },
   { value: "5+", label: "Industry Domains" },
   { value: "PMP", label: "Certified" },
 ]
@@ -49,7 +49,7 @@ export const ABOUT_METRICS: AboutMetric[] = [
     description: "Agile transformation that reduced project cycle times across the org",
   },
   {
-    value: "15+",
+    value: "40+",
     label: "Major Projects",
     description: "Across healthcare, SaaS, e-commerce, and enterprise platforms",
   },

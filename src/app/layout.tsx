@@ -17,7 +17,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rinorobinson.dev"),
+  metadataBase: new URL("https://rinorobinson.com"),
   title: {
     default: "Rino Robinson — Technical Architect & Project Manager",
     template: "%s | Rino Robinson",
@@ -45,14 +45,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rinorobinson.dev",
+    url: "https://rinorobinson.com",
     title: "Rino Robinson — Technical Architect & Project Manager",
     description:
       "PMP-certified Technical Architect with 11+ years of MERN stack expertise. Speaker, leader, and builder of production-grade software.",
     siteName: "Rino Robinson Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: "/banner2.png",
         width: 1200,
         height: 630,
         alt: "Rino Robinson — Technical Architect & Project Manager",
@@ -64,16 +64,16 @@ export const metadata: Metadata = {
     title: "Rino Robinson — Technical Architect & Project Manager",
     description:
       "PMP-certified Technical Architect with 11+ years of MERN stack expertise. Building scalable systems, leading teams, delivering results.",
-    images: ["/og-image.png"],
+    images: ["/banner2.png"],
   },
   robots: {
     index: true,
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  icons: { icon: "/favicon.ico" },
+  icons: { icon: "/favicon.png" },
   alternates: {
-    canonical: "https://rinorobinson.dev",
+    canonical: "https://rinorobinson.com",
   },
 }
 

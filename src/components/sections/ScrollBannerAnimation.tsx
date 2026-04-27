@@ -101,7 +101,7 @@ export function ScrollBannerAnimation() {
       <section className="bg-[#0d0d0d] py-10 px-4">
         <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
           <img
-            src="/banner/00193.png"
+            src="/banner/00193.jpg"
             alt="Showcase banner"
             className="block w-full h-auto"
             loading="lazy"

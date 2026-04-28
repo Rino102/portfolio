@@ -19,7 +19,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-slate-200 bg-white/90 backdrop-blur-xl"
+            ? "border-b border-white/10 bg-[rgba(8,15,30,0.80)] backdrop-blur-xl"
             : "bg-transparent"
         )}
       >
@@ -39,7 +39,7 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="rounded-md px-3 py-2 text-sm text-slate-500 transition-colors hover:text-navy focus-ring"
+                  className="rounded-md px-3 py-2 text-sm text-white/70 transition-colors hover:text-white hover:bg-white/8 focus-ring"
                 >
                   {link.label}
                 </a>
@@ -55,7 +55,7 @@ export function Navbar() {
             </Button>
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition-all hover:text-navy md:hidden focus-ring"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/15 text-white/60 transition-all hover:text-white hover:bg-white/8 md:hidden focus-ring"
               aria-label="Toggle menu"
             >
               {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -72,7 +72,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 top-16 z-40 border-b border-white/10 bg-[rgba(8,15,30,0.90)] backdrop-blur-xl md:hidden"
           >
             <nav className="mx-auto max-w-6xl px-6 py-4 space-y-1">
               {NAV_LINKS.map((link) => (
@@ -80,7 +80,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="block rounded-lg px-4 py-3 text-sm text-slate-500 transition-colors hover:bg-teal-500/5 hover:text-navy"
+                  className="block rounded-lg px-4 py-3 text-sm text-white/70 transition-colors hover:bg-white/8 hover:text-white"
                 >
                   {link.label}
                 </a>

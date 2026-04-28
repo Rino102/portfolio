@@ -53,13 +53,13 @@ export function ContactForm() {
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15">
           <CheckCircle className="h-8 w-8 text-emerald-400" />
         </div>
-        <h3 className="text-xl font-bold text-navy">Message Sent!</h3>
-        <p className="text-sm text-slate-600 max-w-xs">
+        <h3 className="text-xl font-bold text-white/90">Message Sent!</h3>
+        <p className="text-sm text-white/60 max-w-xs">
           Thank you for reaching out. I&apos;ll get back to you within 24 hours.
         </p>
         <button
           onClick={() => setFormState("idle")}
-          className="text-xs text-teal-600 hover:text-teal-500 transition-colors mt-2"
+          className="text-xs text-teal-400 hover:text-teal-300 transition-colors mt-2"
         >
           Send another message
         </button>
@@ -68,9 +68,9 @@ export function ContactForm() {
   }
 
   const inputClasses =
-    "w-full rounded-lg border border-slate-200 bg-white px-4 py-3 text-sm text-navy placeholder-slate-400 outline-none transition-all focus:border-teal-500/60 focus:bg-teal-500/5 focus:ring-1 focus:ring-teal-500/40"
+    "w-full rounded-lg border border-white/15 bg-white/8 px-4 py-3 text-sm text-white/90 placeholder-white/30 outline-none backdrop-blur-sm transition-all focus:border-teal-400/60 focus:bg-teal-500/8 focus:ring-1 focus:ring-teal-400/40"
 
-  const labelClasses = "block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5"
+  const labelClasses = "block text-xs font-semibold uppercase tracking-wider text-white/55 mb-1.5"
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">

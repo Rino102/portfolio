@@ -8,7 +8,7 @@ import { staggerContainer, scaleIn } from "@/hooks/useAnimationVariants"
 
 export function Education() {
   return (
-    <section id="education" className="section-py relative bg-[#f0fbfc] overflow-hidden">
+    <section id="education" className="section-py relative bg-[rgba(255,255,255,0.04)] overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(0,168,181,0.18),transparent)]" />
       <div className="pointer-events-none absolute -bottom-10 right-0 h-64 w-64 rounded-full bg-gold-400/8 blur-[80px]" />
 
@@ -32,15 +32,15 @@ export function Education() {
               className="glass glass-hover rounded-2xl p-6"
             >
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-teal-500/15">
-                <GraduationCap className="h-5 w-5 text-teal-600" />
+                <GraduationCap className="h-5 w-5 text-teal-400" />
               </div>
 
-              <h3 className="text-base font-bold text-navy mb-0.5">{edu.degree}</h3>
-              <p className="text-sm font-semibold text-teal-600 mb-3">{edu.field}</p>
+              <h3 className="text-base font-bold text-white/90 mb-0.5">{edu.degree}</h3>
+              <p className="text-sm font-semibold text-teal-400 mb-3">{edu.field}</p>
 
-              <p className="text-sm text-slate-700 font-medium mb-3">{edu.institution}</p>
+              <p className="text-sm text-white/70 font-medium mb-3">{edu.institution}</p>
 
-              <div className="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+              <div className="flex flex-wrap items-center gap-4 text-xs text-white/50">
                 <span className="flex items-center gap-1.5">
                   <Calendar className="h-3 w-3" />
                   {edu.year}

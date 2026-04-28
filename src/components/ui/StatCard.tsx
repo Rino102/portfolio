@@ -16,7 +16,7 @@ export function StatCard({ metric, index, dark = false }: StatCardProps) {
     <motion.div
       variants={scaleIn}
       custom={index}
-      className={dark ? "dark-glass dark-glass-hover rounded-2xl p-5" : "glass glass-hover rounded-2xl p-5"}
+      className="glass glass-hover rounded-2xl p-5"
     >
       <p
         className="text-3xl font-bold text-teal-500"
@@ -24,8 +24,8 @@ export function StatCard({ metric, index, dark = false }: StatCardProps) {
       >
         {metric.value}
       </p>
-      <p className={cn("mt-1 text-sm font-semibold", dark ? "text-white" : "text-navy")}>{metric.label}</p>
-      <p className={cn("mt-1 text-xs leading-relaxed", dark ? "text-white/60" : "text-slate-500")}>{metric.description}</p>
+      <p className="mt-1 text-sm font-semibold text-white/90">{metric.label}</p>
+      <p className="mt-1 text-xs leading-relaxed text-white/60">{metric.description}</p>
     </motion.div>
   )
 }

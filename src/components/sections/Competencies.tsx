@@ -8,7 +8,7 @@ import { staggerContainer, scaleIn, fadeInUp } from "@/hooks/useAnimationVariant
 
 export function Competencies() {
   return (
-    <section id="competencies" className="section-py relative bg-[#fff9f5] pattern-dots-light overflow-hidden">
+    <section id="competencies" className="section-py relative bg-[rgba(255,255,255,0.04)] overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(0,168,181,0.14),transparent)]" />
       <div className="pointer-events-none absolute -top-20 right-0 h-72 w-72 rounded-full bg-orange-500/10 blur-[90px]" />
       <div className="pointer-events-none absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-gold-400/10 blur-[80px]" />
@@ -28,7 +28,7 @@ export function Competencies() {
           viewport={{ once: true, amount: 0.2 }}
           className="mb-16"
         >
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-slate-200 shadow-[0_0_80px_rgba(0,168,181,0.15)]">
+          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_0_80px_rgba(0,168,181,0.20)]">
             <Image
               src="/banner.png"
               alt="Rino Robinson — PMP Certified Project Manager — Core Competencies"
@@ -57,11 +57,11 @@ export function Competencies() {
               <div className="flex items-center gap-3">
                 <span className="text-2xl">{comp.icon}</span>
                 <div>
-                  <p className="text-sm font-bold text-navy leading-tight">{comp.title}</p>
-                  <p className="text-xs text-teal-600 font-medium">{comp.subtitle}</p>
+                  <p className="text-sm font-bold text-white/90 leading-tight">{comp.title}</p>
+                  <p className="text-xs text-teal-400 font-medium">{comp.subtitle}</p>
                 </div>
               </div>
-              <p className="text-xs text-slate-500 leading-relaxed">{comp.description}</p>
+              <p className="text-xs text-white/60 leading-relaxed">{comp.description}</p>
             </motion.div>
           ))}
         </motion.div>

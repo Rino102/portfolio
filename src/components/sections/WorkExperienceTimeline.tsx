@@ -225,17 +225,16 @@ function MobileFallback() {
   )
 }
 
-/* ── Main export ──────────────────────────────────────────── */
+/* ── Desktop implementation ───────────────────────────────── */
 
-export function WorkExperienceTimeline() {
-  const isDesktop = useMediaQuery("(min-width: 1024px)")
+function DesktopTimeline() {
   const outerRef = useRef<HTMLDivElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const activeIndexRef = useRef(0)
 
   const { scrollYProgress } = useScroll({
     target: outerRef,
-    offset: ["start start", "end 0.9"],
+    offset: ["start start", "end end"],
   })
 
   useMotionValueEvent(scrollYProgress, "change", (v) => {
@@ -247,8 +246,6 @@ export function WorkExperienceTimeline() {
   })
 
   const barScaleX = useTransform(scrollYProgress, [0, 1], [0, 1])
-
-  if (!isDesktop) return <MobileFallback />
 
   return (
     <div ref={outerRef} id="experience" style={{ height: `${DISPLAYED.length * 100}vh` }}>
@@ -290,4 +287,12 @@ export function WorkExperienceTimeline() {
       </div>
     </div>
   )
+}
+
+/* ── Main export ──────────────────────────────────────────── */
+
+export function WorkExperienceTimeline() {
+  const isDesktop = useMediaQuery("(min-width: 1024px)")
+  if (!isDesktop) return <MobileFallback />
+  return <DesktopTimeline />
 }

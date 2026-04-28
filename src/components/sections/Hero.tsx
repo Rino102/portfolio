@@ -79,7 +79,7 @@ export function Hero() {
             custom={4}
             className="flex flex-wrap items-center gap-4"
           >
-            <Button href="#contact" size="lg">
+            <Button href="#contact" variant="glass" size="lg">
               <Mail className="h-4 w-4" />
               Contact Me
             </Button>

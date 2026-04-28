@@ -28,24 +28,24 @@ export function CertCard({ cert }: CertCardProps) {
         <div
           className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl ${
             isCert
-              ? "bg-gold-400/15 text-gold-500"
-              : "bg-teal-500/15 text-teal-600"
+              ? "bg-yellow-400/15 text-yellow-300"
+              : "bg-teal-500/15 text-teal-400"
           }`}
         >
           <Icon className="h-5 w-5" />
         </div>
         <div className="min-w-0">
-          <p className="text-xs text-slate-500 font-medium uppercase tracking-wider">
+          <p className="text-xs text-white/50 font-medium uppercase tracking-wider">
             {isCert ? "Certification" : "Speaking"}
           </p>
-          <p className="text-xs text-slate-500">{cert.date}</p>
+          <p className="text-xs text-white/50">{cert.date}</p>
         </div>
       </div>
 
       <div>
-        <h3 className="text-base font-bold text-navy leading-snug mb-1">{cert.title}</h3>
-        <p className="text-xs font-semibold text-teal-600 mb-3">{cert.issuer}</p>
-        <p className="text-sm text-slate-600 leading-relaxed">{cert.description}</p>
+        <h3 className="text-base font-bold text-white/90 leading-snug mb-1">{cert.title}</h3>
+        <p className="text-xs font-semibold text-teal-400 mb-3">{cert.issuer}</p>
+        <p className="text-sm text-white/60 leading-relaxed">{cert.description}</p>
       </div>
 
       {cert.credentialUrl && (
@@ -53,7 +53,7 @@ export function CertCard({ cert }: CertCardProps) {
           href={cert.credentialUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-auto inline-flex items-center gap-1.5 text-xs text-teal-600 hover:text-teal-500 transition-colors"
+          className="mt-auto inline-flex items-center gap-1.5 text-xs text-teal-400 hover:text-teal-300 transition-colors"
         >
           View Credential <ExternalLink className="h-3 w-3" />
         </a>

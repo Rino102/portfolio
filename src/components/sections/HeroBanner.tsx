@@ -3,12 +3,9 @@
 import { useRef, useState } from "react"
 import { useMediaQuery } from "@/hooks/useMediaQuery"
 import {
-  Activity, Users, Briefcase, Users2,
-  MessageCircle, Calendar, Calculator, AlertTriangle,
   Code2, Server, Database, Cloud, Layers, Zap,
   TrendingUp, Award, Clock, Target,
-  Mail, Download,
-  Shield,
+  Mail,
 } from "lucide-react"
 import {
   motion,
@@ -20,16 +17,6 @@ import {
 
 /* ─── Slide data ──────────────────────────────────────────── */
 
-const PM_SKILLS = [
-  { Icon: Activity,      label: "Agile Methodology" },
-  { Icon: MessageCircle, label: "Client Communication" },
-  { Icon: Users,         label: "Team Co-ordination" },
-  { Icon: Calendar,      label: "Weekly Progress" },
-  { Icon: Briefcase,     label: "Project Handling" },
-  { Icon: Calculator,    label: "Budgeting" },
-  { Icon: Users2,        label: "15 Team Members" },
-  { Icon: AlertTriangle, label: "Handling Escalations" },
-]
 
 const TECH_SKILLS = [
   { Icon: Code2,    label: "React / Next.js",     color: "#00A8B5" },
@@ -42,7 +29,7 @@ const TECH_SKILLS = [
 
 const IMPACT_STATS = [
   { value: "11+",  label: "Years Experience",   desc: "Growing from frontend to architect",   Icon: Clock,      accent: "#00A8B5" },
-  { value: "40+",  label: "Projects Delivered", desc: "Healthcare, SaaS & enterprise",        Icon: Target,     accent: "#1A365D" },
+  { value: "40+",  label: "Projects Delivered", desc: "Healthcare, SaaS & enterprise",        Icon: Target,     accent: "#FFFFFF" },
   { value: "25%",  label: "Faster Delivery",    desc: "Agile transformation results",         Icon: TrendingUp, accent: "#FF6F00" },
   { value: "PMP®", label: "Certified",          desc: "Project Management Professional",      Icon: Award,      accent: "#C09F40" },
 ]
@@ -58,7 +45,7 @@ function sv(v: MotionValue<string>): MotionValue<string | number> {
 
 export function HeroBanner() {
   const isDesktop = useMediaQuery("(min-width: 1100px)")
-  const [current, setCurrent] = useState(0)
+  const [, setCurrent] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
   const currentRef = useRef(0)
 
@@ -94,7 +81,7 @@ export function HeroBanner() {
         {/* ── SLIDE 1 — Project Manager — z:1 (bottom) ─────────── */}
         <motion.div
           style={{ y: isDesktop ? y1 : 0 }}
-          className="desktop:absolute desktop:inset-0 z-[1] flex overflow-hidden bg-[#F8F9FA]"
+          className="desktop:absolute desktop:inset-0 z-[1] flex overflow-hidden"
         >
           {/* Geometric background shapes */}
           <picture className="desktop:absolute desktop:inset-0 h-full w-full">
@@ -111,8 +98,8 @@ export function HeroBanner() {
 
         {/* ── SLIDE 2 — Technical Architect — z:2 ──────────────── */}
         <motion.div
-          style={{ y: isDesktop ? y2 : 0, background: "#1A365D" }}
-          className="desktop:absolute desktop:inset-0 z-[2] flex items-center justify-center overflow-hidden"
+          style={{ y: isDesktop ? y2 : 0, background: "rgba(8,15,30,0.85)" }}
+          className="desktop:absolute desktop:inset-0 z-[2] backdrop-blur-md flex items-center justify-center overflow-hidden"
         >
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div
@@ -193,7 +180,7 @@ export function HeroBanner() {
         {/* ── SLIDE 3 — Impact & Achievements — z:3 (top) ─────── */}
         <motion.div
           style={{ y: isDesktop ? y3 : 0 }}
-          className="desktop:absolute desktop:inset-0 z-[3] flex items-center justify-center overflow-hidden bg-[#F8F9FA]"
+          className="desktop:absolute desktop:inset-0 z-[3] backdrop-blur-md flex items-center justify-center overflow-hidden bg-[rgba(8,15,30,0.75)]"
         >
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
             <div
@@ -214,14 +201,14 @@ export function HeroBanner() {
             </div>
 
             <h1
-              className="mb-3 text-4xl font-black uppercase leading-none tracking-tight md:text-5xl lg:text-6xl"
-              style={{ color: "#1A365D", fontFamily: "var(--font-poppins)" }}
+              className="mb-3 text-4xl font-black uppercase leading-none tracking-tight text-white md:text-5xl lg:text-6xl"
+              style={{ fontFamily: "var(--font-poppins)" }}
             >
               DELIVERING<br />
               <span style={{ color: "#00A8B5" }}>RESULTS</span>
             </h1>
 
-            <p className="mb-12 text-base text-slate-500 md:text-lg">
+            <p className="mb-12 text-base text-white/60 md:text-lg">
               PMP-certified Project Manager &amp; Technical Architect
             </p>
 
@@ -231,9 +218,11 @@ export function HeroBanner() {
                   key={label}
                   className="flex flex-col items-center gap-3 rounded-2xl p-5"
                   style={{
-                    background: "rgba(255,255,255,0.80)",
-                    border: "1px solid rgba(26,54,93,0.10)",
-                    boxShadow: "0 2px 16px rgba(26,54,93,0.06)",
+                    background: "rgba(255,255,255,0.09)",
+                    backdropFilter: "blur(16px)",
+                    WebkitBackdropFilter: "blur(16px)",
+                    border: "1px solid rgba(255,255,255,0.14)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.25)",
                   }}
                 >
                   <div
@@ -249,8 +238,8 @@ export function HeroBanner() {
                     {value}
                   </p>
                   <div>
-                    <p className="text-sm font-bold" style={{ color: "#1A365D" }}>{label}</p>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{desc}</p>
+                    <p className="text-sm font-bold text-white/90">{label}</p>
+                    <p className="mt-1 text-xs leading-relaxed text-white/55">{desc}</p>
                   </div>
                 </div>
               ))}

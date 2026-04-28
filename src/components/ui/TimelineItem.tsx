@@ -37,14 +37,14 @@ export function TimelineItem({ entry, index, isLast }: TimelineItemProps) {
       {/* Content */}
       <div className="glass glass-hover min-w-0 flex-1 rounded-2xl p-6">
         <div className="flex flex-wrap items-start gap-2 mb-2">
-          <h3 className="text-base font-bold text-navy md:text-lg">{entry.role}</h3>
+          <h3 className="text-base font-bold text-white/90 md:text-lg">{entry.role}</h3>
           {entry.badge === "CURRENT" && <Badge variant="current">Current Role</Badge>}
           {entry.badge === "PROMOTED" && <Badge variant="promoted">Promoted</Badge>}
         </div>
 
-        <p className="text-sm font-semibold text-teal-600 mb-2">{entry.company}</p>
+        <p className="text-sm font-semibold text-teal-400 mb-2">{entry.company}</p>
 
-        <div className="flex flex-wrap items-center gap-4 mb-4 text-xs text-slate-500">
+        <div className="flex flex-wrap items-center gap-4 mb-4 text-xs text-white/50">
           <span className="flex items-center gap-1.5">
             <Calendar className="h-3 w-3" />
             {entry.startDate} — {entry.endDate}
@@ -55,11 +55,11 @@ export function TimelineItem({ entry, index, isLast }: TimelineItemProps) {
           </span>
         </div>
 
-        <p className="text-sm text-slate-600 mb-4 leading-relaxed">{entry.description}</p>
+        <p className="text-sm text-white/65 mb-4 leading-relaxed">{entry.description}</p>
 
         <ul className="space-y-2">
           {entry.achievements.map((ach, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-sm text-slate-600">
+            <li key={i} className="flex items-start gap-2.5 text-sm text-white/65">
               <span className="mt-2 h-1 w-1 flex-shrink-0 rounded-full bg-teal-500" />
               <span className="leading-relaxed">{ach}</span>
             </li>

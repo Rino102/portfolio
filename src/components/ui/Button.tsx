@@ -32,8 +32,8 @@ export function Button({
     primary:
       "bg-teal-500 hover:bg-teal-400 text-white shadow-[0_0_24px_rgba(0,168,181,0.3)] hover:shadow-[0_0_32px_rgba(0,168,181,0.5)]",
     outline:
-      "border border-teal-500/50 text-teal-600 hover:bg-teal-500/10 hover:border-teal-400",
-    ghost: "text-slate-500 hover:text-navy hover:bg-navy/5",
+      "border border-white/20 text-white/85 hover:bg-white/10 hover:border-teal-400/50 backdrop-blur-sm",
+    ghost: "text-white/60 hover:text-white hover:bg-white/10",
   }
 
   const sizes = {

@@ -11,15 +11,15 @@ export function Badge({ children, variant = "indigo", size = "sm", className }: 
   const base = "inline-flex items-center rounded-full font-medium"
 
   const variants = {
-    indigo: "bg-teal-500/15 text-teal-600 border border-teal-500/25",
-    amber: "bg-gold-400/15 text-gold-500 border border-gold-400/25",
-    green: "bg-emerald-500/15 text-emerald-700 border border-emerald-500/25",
-    slate: "bg-slate-500/15 text-slate-600 border border-slate-500/25",
-    rose: "bg-rose-500/15 text-rose-600 border border-rose-500/25",
-    cyan: "bg-teal-500/15 text-teal-600 border border-teal-500/25",
+    indigo: "bg-teal-400/15 text-teal-300 border border-teal-400/30",
+    amber: "bg-yellow-400/15 text-yellow-200 border border-yellow-400/30",
+    green: "bg-emerald-400/15 text-emerald-300 border border-emerald-400/30",
+    slate: "bg-white/10 text-white/80 border border-white/15",
+    rose: "bg-rose-400/15 text-rose-300 border border-rose-400/30",
+    cyan: "bg-teal-400/15 text-teal-300 border border-teal-400/30",
     current:
-      "bg-teal-500/20 text-teal-700 border border-teal-400/40 shadow-[0_0_12px_rgba(0,168,181,0.2)]",
-    promoted: "bg-orange-500/20 text-orange-600 border border-orange-400/40",
+      "bg-teal-500/20 text-teal-300 border border-teal-400/40 shadow-[0_0_12px_rgba(0,168,181,0.2)]",
+    promoted: "bg-orange-400/15 text-orange-300 border border-orange-400/30",
   }
 
   const sizes = {

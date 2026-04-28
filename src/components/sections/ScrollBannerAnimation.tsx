@@ -98,7 +98,7 @@ export function ScrollBannerAnimation() {
 
   if (isMobile) {
     return (
-      <section className="bg-[#0d0d0d] py-10 px-4">
+      <section className="bg-[rgba(5,5,10,0.70)] py-10 px-4">
         <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
           <img
             src="/banner/0193.jpg"

@@ -4,11 +4,11 @@ import { useEffect, useRef, useCallback } from "react"
 import { motion, useScroll, useTransform, useMotionValueEvent, type MotionValue } from "framer-motion"
 import { useMediaQuery } from "@/hooks/useMediaQuery"
 
-const FRAME_COUNT = 193
+const FRAME_COUNT = 79
 
 function frameSrc(index: number) {
   
-  const n = String(index).padStart(4, "0");
+  const n = String(index).padStart(3, "0");
   return `/banner/${n}.jpg`;
 }
 
@@ -101,7 +101,7 @@ export function ScrollBannerAnimation() {
       <section className="bg-[rgba(5,5,10,0.70)] py-10 px-4">
         <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
           <img
-            src="/banner/0193.jpg"
+            src="pmp-certified.png"
             alt="Showcase banner"
             className="block w-full h-auto"
             loading="lazy"

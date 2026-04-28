@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react"
 import type { ButtonHTMLAttributes } from "react"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "outline" | "ghost"
+  variant?: "primary" | "outline" | "ghost" | "glass"
   size?: "sm" | "md" | "lg"
   href?: string
   download?: boolean | string
@@ -34,6 +34,8 @@ export function Button({
     outline:
       "border border-white/20 text-white/85 hover:bg-white/10 hover:border-teal-400/50 backdrop-blur-sm",
     ghost: "text-white/60 hover:text-white hover:bg-white/10",
+    glass:
+      "bg-teal-400/15 hover:bg-teal-400/25 text-teal-300 hover:text-teal-200 border border-teal-400/40 hover:border-teal-400/70 backdrop-blur-md shadow-[0_0_20px_rgba(0,168,181,0.20),inset_0_1px_0_rgba(255,255,255,0.10)] hover:shadow-[0_0_30px_rgba(0,168,181,0.35),inset_0_1px_0_rgba(255,255,255,0.15)]",
   }
 
   const sizes = {

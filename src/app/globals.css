@@ -33,7 +33,7 @@
 
 @layer base {
   :root {
-    --color-background: #080f1e;
+    --color-background: #041327;
     --color-text: rgba(255, 255, 255, 0.88);
     --color-border: rgba(255, 255, 255, 0.10);
     --color-border-hover: rgba(0, 168, 181, 0.40);
@@ -50,7 +50,7 @@
   }
 
   body {
-    background-color: #080f1e;
+    background-color: #041327;
     background-image:
       radial-gradient(ellipse 80% 50% at 15% 20%, rgba(0, 168, 181, 0.28) 0%, transparent 60%),
       radial-gradient(ellipse 60% 40% at 85% 15%, rgba(255, 111, 0, 0.18) 0%, transparent 55%),
@@ -79,7 +79,7 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #080f1e;
+    background: #041327;
   }
 
   ::-webkit-scrollbar-thumb {

@@ -19,7 +19,7 @@ export function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "border-b border-white/10 bg-[rgba(8,15,30,0.80)] backdrop-blur-xl"
+            ? "border-b border-white/10 bg-[rgba(4,19,39,0.80)] backdrop-blur-xl"
             : "bg-transparent"
         )}
       >
@@ -72,7 +72,7 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-x-0 top-16 z-40 border-b border-white/10 bg-[rgba(8,15,30,0.90)] backdrop-blur-xl md:hidden"
+            className="fixed inset-x-0 top-16 z-40 border-b border-white/10 bg-[rgba(4,19,39,0.90)] backdrop-blur-xl md:hidden"
           >
             <nav className="mx-auto max-w-6xl px-6 py-4 space-y-1">
               {NAV_LINKS.map((link) => (

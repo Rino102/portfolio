@@ -44,7 +44,7 @@ const CONTACT_ITEMS = [
 
 export function Contact() {
   return (
-    <section id="contact" className="section-py relative bg-[rgba(5,10,20,0.50)] overflow-hidden">
+    <section id="contact" className="section-py relative bg-[rgba(4,19,39,0.50)] overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(0,168,181,0.20),transparent)]" />
       <div className="pointer-events-none absolute -top-10 right-0 h-72 w-72 rounded-full bg-orange-500/12 blur-[90px]" />
 

@@ -98,10 +98,10 @@ export function ScrollBannerAnimation() {
 
   if (isMobile) {
     return (
-      <section className="bg-[rgba(5,5,10,0.70)] py-10 px-4">
+      <section className="bg-[rgba(4,19,39,0.70)] py-10 px-4">
         <div className="mx-auto max-w-5xl overflow-hidden rounded-2xl shadow-[0_24px_60px_rgba(0,0,0,0.5)]">
           <img
-            src="pmp-certified.png"
+            src="/pmp-certified.png"
             alt="Showcase banner"
             className="block w-full h-auto"
             loading="lazy"
@@ -114,7 +114,7 @@ export function ScrollBannerAnimation() {
   return (
     <section
       ref={containerRef}
-      style={{ height: "350vh", background: "#0d0d0d" }}
+      style={{ height: "350vh", background: "#041327" }}
     >
       {/* Sticky viewport */}
       <div

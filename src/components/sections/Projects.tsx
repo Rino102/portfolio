@@ -8,7 +8,7 @@ import { staggerContainer } from "@/hooks/useAnimationVariants"
 
 export function Projects() {
   return (
-    <section id="projects" className="section-py relative bg-[rgba(4,9,20,0.60)] overflow-hidden">
+    <section id="projects" className="section-py relative bg-[rgba(4,19,39,0.60)] overflow-hidden">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_60%_35%_at_50%_0%,rgba(0,168,181,0.18),transparent)]" />
       <div className="pointer-events-none absolute -bottom-10 right-0 h-72 w-72 rounded-full bg-orange-500/12 blur-[100px]" />
 

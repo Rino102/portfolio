@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Rino Robinson Portfolio",
     images: [
       {
-        url: "/favicon.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "Rino Robinson — Technical Architect & Project Manager",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: "Rino Robinson — Technical Architect & Project Manager",
     description:
       "PMP-certified Technical Architect with 11+ years of MERN stack expertise. Building scalable systems, leading teams, delivering results.",
-    images: ["/favicon.png"],
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,

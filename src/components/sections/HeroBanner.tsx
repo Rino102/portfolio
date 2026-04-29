@@ -226,7 +226,7 @@ function DesktopBanner() {
           style={{
             y: y1, scale: scale1, opacity: opacity1,
             zIndex: 2, position: "absolute", inset: 0,
-            background: "rgba(8,15,30,0.92)",
+            background: "rgba(4,19,39,0.92)",
             backdropFilter: "blur(4px)",
           }}
           className="flex items-center justify-center overflow-hidden"
@@ -236,7 +236,7 @@ function DesktopBanner() {
 
         {/* Slide 2 — Results */}
         <motion.div
-          style={{ y: y2, zIndex: 3, position: "absolute", inset: 0, background: "rgba(8,15,30,0.88)" }}
+          style={{ y: y2, zIndex: 3, position: "absolute", inset: 0, background: "rgba(4,19,39,0.88)" }}
           className="flex items-center justify-center overflow-hidden"
         >
           <Slide2Content />
@@ -270,7 +270,7 @@ function MobileBanner() {
       {/* Slide 1 — Technical Architect */}
       <div
         className="relative flex items-center justify-center overflow-hidden py-4"
-        style={{ background: "rgba(8,15,30,0.92)" }}
+        style={{ background: "rgba(4,19,39,0.92)" }}
       >
         <Slide1Content />
       </div>
@@ -278,7 +278,7 @@ function MobileBanner() {
       {/* Slide 2 — Results */}
       <div
         className="relative flex items-center justify-center overflow-hidden py-4"
-        style={{ background: "rgba(8,15,30,0.88)" }}
+        style={{ background: "rgba(4,19,39,0.88)" }}
       >
         <Slide2Content />
       </div>

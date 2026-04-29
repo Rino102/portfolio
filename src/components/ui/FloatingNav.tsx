@@ -144,7 +144,7 @@ export function FloatingNav() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.94 }}
               transition={{ duration: 0.24, ease: [0.22, 1, 0.36, 1] }}
-              className="flex flex-col gap-0.5 rounded-2xl border border-white/14 bg-[rgba(10,18,35,0.85)] p-2 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.10)]"
+              className="flex flex-col gap-0.5 rounded-2xl border border-white/14 bg-[rgba(4,19,39,0.85)] p-2 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.10)]"
               style={{ minWidth: 196 }}
             >
               {NAV_ITEMS.map((item, i) => {

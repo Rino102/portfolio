@@ -324,7 +324,7 @@ export const EDUCATION: EducationEntry[] = [
   },
   {
     degree: "Higher Secondary Education",
-    field: "Science",
+    field: "State Board",
     institution: "St. Joseph's Hr. Sec School",
     year: "2009",
     location: "Thiruthuvapuram, Nagercoil, India",

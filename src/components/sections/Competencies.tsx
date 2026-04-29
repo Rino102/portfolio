@@ -30,7 +30,7 @@ export function Competencies() {
         >
           <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_0_80px_rgba(0,168,181,0.20)]">
             <Image
-              src="/banner.png"
+              src="/core-competency.png"
               alt="Rino Robinson — PMP Certified Project Manager — Core Competencies"
               width={1376}
               height={768}

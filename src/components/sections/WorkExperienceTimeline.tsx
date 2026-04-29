@@ -118,7 +118,7 @@ function StackedCard({ entry, index, total, scrollYProgress, isActive }: Stacked
         zIndex: index + 1,
         position: "absolute",
         inset: 0,
-        background: "rgba(8,15,30,0.92)",
+        background: "rgba(4,19,39,0.92)",
         backdropFilter: "blur(20px) saturate(180%)",
         WebkitBackdropFilter: "blur(20px) saturate(180%)",
         border: "1px solid rgba(255,255,255,0.12)",
@@ -190,7 +190,7 @@ function TimelineDots({ entries, activeIndex, scrollYProgress }: TimelineDotsPro
             }}
             transition={{ duration: 0.3 }}
             className="h-3 w-3 rounded-full"
-            style={{ border: "2px solid rgba(8,15,30,1)" }}
+            style={{ border: "2px solid rgba(4,19,39,1)" }}
           />
         </div>
       ))}

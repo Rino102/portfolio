@@ -13,7 +13,7 @@ export function Skills() {
   const activeCategory = SKILLS.find((c) => c.label === activeTab) ?? SKILLS[0]!
 
   return (
-    <section id="skills" className="section-py relative bg-[rgba(5,12,25,0.55)] overflow-hidden">
+    <section id="skills" className="section-py relative bg-[rgba(4,19,39,0.55)] overflow-hidden">
       <div className="pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-teal-500/15 blur-[100px]" />
       <div className="pointer-events-none absolute -top-10 left-0 h-64 w-64 rounded-full bg-orange-500/10 blur-[80px]" />
 

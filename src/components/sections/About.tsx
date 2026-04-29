@@ -15,7 +15,7 @@ const STRENGTHS = [
 
 export function About() {
   return (
-    <section id="about" className="section-py relative bg-[rgba(5,10,20,0.50)] overflow-hidden">
+    <section id="about" className="section-py relative bg-[rgba(4,19,39,0.50)] overflow-hidden">
       {/* Teal ambient glow — top right */}
       <div className="pointer-events-none absolute -top-32 right-0 h-[480px] w-[480px] rounded-full bg-teal-500/20 blur-[120px]" />
       {/* Orange ambient glow — bottom left */}

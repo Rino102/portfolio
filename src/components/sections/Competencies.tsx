@@ -1,67 +1,101 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
-import { SectionHeader } from "@/components/ui/SectionHeader"
+import { fadeInUp, scaleIn, staggerContainer } from "@/hooks/useAnimationVariants"
 import { PM_COMPETENCIES } from "@/data/resume"
-import { staggerContainer, scaleIn, fadeInUp } from "@/hooks/useAnimationVariants"
+
+const VP = { once: true, amount: 0.1 }
 
 export function Competencies() {
   return (
-    <section id="competencies" className="section-py relative bg-[rgba(255,255,255,0.04)] overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_70%_50%_at_50%_50%,rgba(0,168,181,0.14),transparent)]" />
-      <div className="pointer-events-none absolute -top-20 right-0 h-72 w-72 rounded-full bg-orange-500/10 blur-[90px]" />
-      <div className="pointer-events-none absolute -bottom-10 -left-10 h-64 w-64 rounded-full bg-gold-400/10 blur-[80px]" />
-
-      <div className="relative mx-auto max-w-6xl px-6">
-        <SectionHeader
-          title="Core Competencies"
-          subtitle="The eight pillars that define how I plan, lead, and deliver projects with measurable impact."
-          align="center"
-        />
-
-        {/* Banner image — professional profile card */}
-        <motion.div
+    <section
+      id="competencies"
+      style={{
+        padding: "52px 40px",
+        borderBottom: "1px solid rgba(28,20,16,.10)",
+      }}
+    >
+      <div className="mx-auto" style={{ maxWidth: 1088 }}>
+        <motion.p
+          className="section-label mb-1"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="mb-16"
+          viewport={VP}
         >
-          <div className="relative mx-auto max-w-4xl overflow-hidden rounded-2xl border border-white/15 shadow-[0_0_80px_rgba(0,168,181,0.20)]">
-            <Image
-              src="/core-competency.png"
-              alt="Rino Robinson — PMP Certified Project Manager — Core Competencies"
-              width={1376}
-              height={768}
-              className="w-full h-auto"
-              priority
-            />
-          </div>
-        </motion.div>
+          02 / Competencies
+        </motion.p>
+        <motion.p
+          className="mb-10"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: 28,
+            color: "#1c1410",
+          }}
+        >
+          Eight pillars of delivery
+        </motion.p>
 
-        {/* Competency cards grid */}
         <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2"
+          style={{ columnGap: 48 }}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4"
+          viewport={VP}
         >
-          {PM_COMPETENCIES.map((comp) => (
+          {PM_COMPETENCIES.map((comp, i) => (
             <motion.div
               key={comp.title}
+              className="flex gap-4"
               variants={scaleIn}
-              className="glass glass-hover rounded-2xl p-5 flex flex-col gap-3"
+              style={{
+                paddingTop: 20,
+                paddingBottom: 20,
+                borderTop: "1px solid rgba(28,20,16,.14)",
+              }}
             >
-              <div className="flex items-center gap-3">
-                <span className="text-2xl">{comp.icon}</span>
-                <div>
-                  <p className="text-sm font-bold text-white/90 leading-tight">{comp.title}</p>
-                  <p className="text-xs text-teal-400 font-medium">{comp.subtitle}</p>
-                </div>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  fontWeight: 500,
+                  color: "#7a2a1e",
+                  flexShrink: 0,
+                  paddingTop: 2,
+                  minWidth: 26,
+                }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <p
+                  className="mb-1"
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 14.5,
+                    fontWeight: 500,
+                    color: "#1c1410",
+                  }}
+                >
+                  {comp.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 13.5,
+                    fontWeight: 300,
+                    lineHeight: 1.62,
+                    color: "rgba(28,20,16,.65)",
+                  }}
+                >
+                  {comp.description}
+                </p>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed">{comp.description}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -19,10 +19,54 @@ export const PERSONAL: ContactInfo = {
   location: "Chennai, Tamil Nadu, India",
 }
 
-export const HERO_HEADLINE = "Architecting Scalable Systems. Delivering Measurable Impact."
+export const HERO_HEADLINE = "I run the plan and I can read the code."
 
 export const HERO_SUMMARY =
-  "PMP-certified Technical Architect and Project Manager with 11+ years of experience designing enterprise-grade full-stack solutions — from HIPAA-compliant healthcare platforms to AI-powered SaaS products."
+  "PMP-certified Project Manager and Technical Architect. Eleven years turning ambiguous requirements into MERN-stack systems that pass audit, hit the committed date, and stay maintainable after handover."
+
+export const ABOUT_PULL_QUOTE =
+  "I bridge the gap between complex technical decisions and the business outcome someone is waiting on."
+
+export const ABOUT_SHORT_BODY =
+  "My path ran frontend engineer → tech lead → Technical Architect and PMP-certified Project Manager. That order matters: I estimate work I have actually done, and I can tell when a status update is optimistic."
+
+export const ABOUT_CAPABILITIES = [
+  {
+    title: "Architecture with a delivery date attached",
+    body:  "MERN, cloud-native infrastructure, AI integration, HIPAA-grade constraints.",
+  },
+  {
+    title: "Delivery leadership, 15 engineers",
+    body:  "Cross-functional squads across time zones, on Scrum and Kanban cadences.",
+  },
+  {
+    title: "Reporting executives actually read",
+    body:  "Risk logs, cost variance, and escalations resolved before they reach the steering committee.",
+  },
+]
+
+export const HERO_STATS = [
+  { label: "Cycle time after Agile rollout", fill: 75, value: "−25%" },
+  { label: "Projects delivered",             fill: 88, value: "40+"  },
+  { label: "Engineers led",                  fill: 60, value: "15"   },
+]
+
+export const AT_A_GLANCE = [
+  { label: "Certification",  value: "PMP® · PMI"   },
+  { label: "Experience",     value: "11+ years"     },
+  { label: "Domains",        value: "Health · SaaS" },
+  { label: "Notice period",  value: "30 days"       },
+]
+
+export const NOW_TEXT =
+  "Leading delivery for an enterprise health platform in Chennai, writing up PMP study notes, and publishing a short field note most weekdays."
+
+export const FIELD_NOTES = [
+  { date: "12 SEP", title: "The status report nobody skims",             tag: "Delivery"   },
+  { date: "11 SEP", title: "Estimating work you have never done",        tag: "Estimation" },
+  { date: "09 SEP", title: "Why my retros run for 25 minutes",           tag: "Agile"      },
+  { date: "08 SEP", title: "Reading a Gantt chart like a risk register", tag: "PMP"        },
+]
 
 export const ABOUT_NARRATIVE = `I'm a PMP-certified Technical Architect and Project Manager with over a decade of hands-on experience building full-stack products that solve real business problems. My journey began in frontend engineering and evolved through leading teams, architecting systems, and owning complete project delivery lifecycles.
 
@@ -64,83 +108,30 @@ export const SKILLS: SkillCategory[] = [
   {
     label: "Frontend",
     skills: [
-      { name: "React.js" },
-      { name: "Next.js" },
-      { name: "TypeScript" },
-      { name: "JavaScript (ES6+)" },
-      { name: "HTML5 / CSS3" },
-      { name: "Tailwind CSS" },
-      { name: "SASS / SCSS" },
-      { name: "Redux" },
-      { name: "Context API" },
-      { name: "Framer Motion" },
-      { name: "Bootstrap" },
-      { name: "jQuery" },
+      { name: "React" }, { name: "Next.js" }, { name: "TypeScript" },
+      { name: "JavaScript ES6+" }, { name: "HTML5 / CSS3" }, { name: "Tailwind" },
+      { name: "SASS" }, { name: "Redux" }, { name: "Framer Motion" },
     ],
   },
   {
-    label: "Backend",
+    label: "Backend & data",
     skills: [
-      { name: "Node.js" },
-      { name: "Express.js" },
-      { name: "Python" },
-      { name: "Ruby on Rails" },
-      { name: "RESTful APIs" },
-      { name: "GraphQL" },
-      { name: "Microservices" },
-      { name: "API Gateway" },
-      { name: "Authentication & Authorization" },
+      { name: "Node.js" }, { name: "Express" }, { name: "REST" },
+      { name: "MongoDB" }, { name: "PostgreSQL" }, { name: "Redis" },
     ],
   },
   {
-    label: "Databases",
+    label: "Cloud & AI",
     skills: [
-      { name: "MongoDB" },
-      { name: "PostgreSQL" },
-      { name: "MySQL" },
-      { name: "Schema Design" },
-      { name: "Data Migration" },
+      { name: "AWS" }, { name: "Docker" }, { name: "CI/CD" },
+      { name: "OpenAI APIs" }, { name: "LLM integration patterns" },
     ],
   },
   {
-    label: "Cloud & DevOps",
+    label: "Delivery",
     skills: [
-      { name: "AWS" },
-      { name: "Cloud Infrastructure" },
-      { name: "CI/CD Pipelines" },
-      { name: "Docker" },
-      { name: "Git & GitHub" },
-      { name: "Bitbucket" },
-      { name: "Deployment Automation" },
-      { name: "Vercel" },
-    ],
-  },
-  {
-    label: "AI & Integrations",
-    skills: [
-      { name: "OpenAI API" },
-      { name: "AI-Powered Applications" },
-      { name: "Stripe" },
-      { name: "SendGrid" },
-      { name: "SteadyMD" },
-      { name: "Freshworks API" },
-      { name: "Rocketlane API" },
-      { name: "Third-party Integrations" },
-    ],
-  },
-  {
-    label: "Project Management",
-    skills: [
-      { name: "PMP Certified" },
-      { name: "Agile / Scrum" },
-      { name: "JIRA" },
-      { name: "Confluence" },
-      { name: "Trello" },
-      { name: "Basecamp" },
-      { name: "Rocketlane" },
-      { name: "Stakeholder Management" },
-      { name: "Resource Planning" },
-      { name: "Risk Management" },
+      { name: "PMP®" }, { name: "Scrum" }, { name: "Kanban" }, { name: "Jira" },
+      { name: "risk management" }, { name: "budgeting" }, { name: "stakeholder management" },
     ],
   },
 ]
@@ -289,7 +280,7 @@ export const CERTIFICATIONS: CertificationEntry[] = [
     title: "Project Management Professional (PMP)",
     issuer: "Project Management Institute (PMI)",
     date: "Active",
-    credentialUrl: "https://www.credly.com",
+    credentialUrl: "https://www.credly.com/badges/6cec4e42-8ae7-47fb-b12a-f3b1d3be8039",
     description:
       "Globally recognized certification demonstrating expertise in project management methodologies, frameworks, and best practices. Verified on Credly.",
     icon: "Award",
@@ -383,11 +374,10 @@ export const PM_COMPETENCIES = [
 ]
 
 export const NAV_LINKS = [
-  { label: "About", href: "#about" },
+  { label: "About",        href: "#about"        },
   { label: "Competencies", href: "#competencies" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience",   href: "#experience"   },
+  { label: "Case studies", href: "#case-studies" },
+  { label: "Skills",       href: "#skills"       },
+  { label: "Notes",        href: "#notes"        },
 ]

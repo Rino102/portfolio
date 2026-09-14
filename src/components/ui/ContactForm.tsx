@@ -3,15 +3,17 @@
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { motion, AnimatePresence } from "framer-motion"
 import { Send, CheckCircle, AlertCircle } from "lucide-react"
 import { contactSchema, type ContactFormValues } from "@/lib/validations"
 import { Button } from "@/components/ui/Button"
-import { scaleIn } from "@/hooks/useAnimationVariants"
 
 type FormState = "idle" | "loading" | "success" | "error"
 
-export function ContactForm() {
+interface ContactFormProps {
+  dark?: boolean
+}
+
+export function ContactForm({ dark = false }: ContactFormProps) {
   const [formState, setFormState] = useState<FormState>("idle")
   const [errorMessage, setErrorMessage] = useState("")
 
@@ -42,111 +44,154 @@ export function ContactForm() {
     }
   }
 
+  const textColor   = dark ? "#f7f2e8" : "#1c1410"
+  const labelColor  = dark ? "rgba(247,242,232,.42)" : "rgba(28,20,16,.50)"
+  const errColor    = "#c0392b"
+
+  const inputClass = dark ? "form-input form-input-dark" : "form-input form-input-light"
+
+  const labelStyle: React.CSSProperties = {
+    fontFamily: "var(--font-mono)",
+    fontSize: 10,
+    letterSpacing: ".14em",
+    textTransform: "uppercase",
+    color: labelColor,
+    display: "block",
+    marginBottom: 6,
+  }
+
   if (formState === "success") {
     return (
-      <motion.div
-        variants={scaleIn}
-        initial="hidden"
-        animate="visible"
-        className="glass flex flex-col items-center justify-center gap-4 rounded-2xl p-10 text-center"
-      >
-        <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15">
-          <CheckCircle className="h-8 w-8 text-emerald-400" />
-        </div>
-        <h3 className="text-xl font-bold text-white/90">Message Sent!</h3>
-        <p className="text-sm text-white/60 max-w-xs">
-          Thank you for reaching out. I&apos;ll get back to you within 24 hours.
+      <div style={{ paddingTop: 40, paddingBottom: 40, textAlign: "center" }}>
+        <CheckCircle
+          style={{
+            color: "#1f7a4d",
+            width: 36,
+            height: 36,
+            margin: "0 auto 16px",
+          }}
+        />
+        <p
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: 20,
+            color: textColor,
+            marginBottom: 8,
+          }}
+        >
+          Message sent.
+        </p>
+        <p
+          style={{
+            fontFamily: "var(--font-sans)",
+            fontSize: 14,
+            fontWeight: 300,
+            color: labelColor,
+          }}
+        >
+          I&apos;ll respond within 24 hours.
         </p>
         <button
           onClick={() => setFormState("idle")}
-          className="text-xs text-teal-400 hover:text-teal-300 transition-colors mt-2"
+          style={{
+            marginTop: 16,
+            fontFamily: "var(--font-mono)",
+            fontSize: 11,
+            color: "#7a2a1e",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            letterSpacing: ".08em",
+          }}
         >
-          Send another message
+          Send another →
         </button>
-      </motion.div>
+      </div>
     )
   }
 
-  const inputClasses =
-    "w-full rounded-lg border border-white/15 bg-white/8 px-4 py-3 text-sm text-white/90 placeholder-white/30 outline-none backdrop-blur-sm transition-all focus:border-teal-400/60 focus:bg-teal-500/8 focus:ring-1 focus:ring-teal-400/40"
-
-  const labelClasses = "block text-xs font-semibold uppercase tracking-wider text-white/55 mb-1.5"
-
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+    <form onSubmit={handleSubmit(onSubmit)} style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
         <div>
-          <label className={labelClasses}>Name</label>
+          <label style={labelStyle}>Name</label>
           <input
             {...register("name")}
             placeholder="Your name"
-            className={inputClasses}
+            className={inputClass}
             autoComplete="name"
           />
           {errors.name && (
-            <p className="mt-1 text-xs text-rose-400">{errors.name.message}</p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: errColor, marginTop: 4 }}>
+              {errors.name.message}
+            </p>
           )}
         </div>
         <div>
-          <label className={labelClasses}>Email</label>
+          <label style={labelStyle}>Email</label>
           <input
             {...register("email")}
             type="email"
             placeholder="your@email.com"
-            className={inputClasses}
+            className={inputClass}
             autoComplete="email"
           />
           {errors.email && (
-            <p className="mt-1 text-xs text-rose-400">{errors.email.message}</p>
+            <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: errColor, marginTop: 4 }}>
+              {errors.email.message}
+            </p>
           )}
         </div>
       </div>
 
       <div>
-        <label className={labelClasses}>Subject</label>
+        <label style={labelStyle}>Subject</label>
         <input
           {...register("subject")}
           placeholder="How can I help you?"
-          className={inputClasses}
+          className={inputClass}
         />
         {errors.subject && (
-          <p className="mt-1 text-xs text-rose-400">{errors.subject.message}</p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: errColor, marginTop: 4 }}>
+            {errors.subject.message}
+          </p>
         )}
       </div>
 
       <div>
-        <label className={labelClasses}>Message</label>
+        <label style={labelStyle}>Message</label>
         <textarea
           {...register("message")}
-          placeholder="Tell me about your project or opportunity..."
-          rows={5}
-          className={`${inputClasses} resize-none`}
+          placeholder="Tell me about your project..."
+          rows={4}
+          className={`${inputClass} resize-none`}
         />
         {errors.message && (
-          <p className="mt-1 text-xs text-rose-400">{errors.message.message}</p>
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: errColor, marginTop: 4 }}>
+            {errors.message.message}
+          </p>
         )}
       </div>
 
-      <AnimatePresence>
-        {formState === "error" && (
-          <motion.div
-            initial={{ opacity: 0, y: -8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            className="flex items-center gap-2 rounded-lg border border-rose-500/20 bg-rose-500/8 px-4 py-3"
-          >
-            <AlertCircle className="h-4 w-4 text-rose-400 flex-shrink-0" />
-            <p className="text-xs text-rose-400">{errorMessage}</p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {formState === "error" && (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "10px 14px",
+            border: "1px solid rgba(192,57,43,.30)",
+            backgroundColor: "rgba(192,57,43,.08)",
+          }}
+        >
+          <AlertCircle style={{ width: 14, height: 14, color: errColor, flexShrink: 0 }} />
+          <p style={{ fontFamily: "var(--font-mono)", fontSize: 11, color: errColor }}>
+            {errorMessage}
+          </p>
+        </div>
+      )}
 
-      <Button
-        type="submit"
-        loading={formState === "loading"}
-        size="lg"
-        className="w-full"
-      >
+      <Button type="submit" loading={formState === "loading"} className="w-full justify-center">
         <Send className="h-4 w-4" />
         Send Message
       </Button>

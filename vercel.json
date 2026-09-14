@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "src/app/api/contact/route.ts": {
-      "maxDuration": 10
-    }
-  }
-}

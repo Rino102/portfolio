@@ -1,84 +1,86 @@
 "use client"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { SectionHeader } from "@/components/ui/SectionHeader"
-import { SkillPill } from "@/components/ui/SkillPill"
+import { motion } from "framer-motion"
+import { fadeInUp, staggerContainer } from "@/hooks/useAnimationVariants"
 import { SKILLS } from "@/data/resume"
-import { tabContentVariant, staggerContainerFast, fadeInUp } from "@/hooks/useAnimationVariants"
-import { cn } from "@/lib/utils"
+
+const VP = { once: true, amount: 0.15 }
 
 export function Skills() {
-  const [activeTab, setActiveTab] = useState(SKILLS[0]!.label)
-  const activeCategory = SKILLS.find((c) => c.label === activeTab) ?? SKILLS[0]!
-
   return (
-    <section id="skills" className="section-py relative bg-[rgba(4,19,39,0.55)] overflow-hidden">
-      <div className="pointer-events-none absolute -bottom-20 left-1/2 -translate-x-1/2 h-96 w-[600px] rounded-full bg-teal-500/15 blur-[100px]" />
-      <div className="pointer-events-none absolute -top-10 left-0 h-64 w-64 rounded-full bg-orange-500/10 blur-[80px]" />
-
-      <div className="relative mx-auto max-w-6xl px-6">
-        <SectionHeader
-          title="Skills & Expertise"
-          subtitle="A broad technology foundation built over 11+ years of hands-on delivery."
-          align="center"
-          dark
-        />
-
-        {/* Tab list */}
-        <motion.div
+    <section id="skills" style={{ padding: "52px 40px", borderBottom: "1px solid rgba(28,20,16,.10)" }}>
+      <div className="mx-auto" style={{ maxWidth: 1088 }}>
+        <motion.p
+          className="section-label mb-1"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="mb-10 flex flex-wrap justify-center gap-2"
+          viewport={VP}
         >
-          {SKILLS.map((cat) => (
-            <button
+          05 / Skills
+        </motion.p>
+        <motion.p
+          className="mb-10"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+          style={{
+            fontFamily: "var(--font-serif)",
+            fontSize: 28,
+            color: "#1c1410",
+          }}
+        >
+          Working stack
+        </motion.p>
+
+        <motion.div
+          className="flex flex-col"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+        >
+          {SKILLS.map((cat, i) => (
+            <motion.div
               key={cat.label}
-              onClick={() => setActiveTab(cat.label)}
-              className={cn(
-                "rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 focus-ring",
-                activeTab === cat.label
-                  ? "border-teal-400/60 bg-teal-500/20 text-teal-300"
-                  : "border-white/15 bg-white/6 text-white/60 hover:border-teal-400/50 hover:text-white"
-              )}
+              variants={fadeInUp}
+              className="grid grid-cols-1 sm:grid-cols-[190px_1fr] items-start"
+              style={{
+                gap: 24,
+                padding: "20px 0",
+                borderTop: "1px solid rgba(28,20,16,.14)",
+                borderBottom:
+                  i === SKILLS.length - 1 ? "1px solid rgba(28,20,16,.14)" : undefined,
+              }}
             >
-              {cat.label}
-            </button>
+              <p
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 12,
+                  fontWeight: 500,
+                  letterSpacing: ".1em",
+                  textTransform: "uppercase",
+                  color: "#7a2a1e",
+                  paddingTop: 2,
+                }}
+              >
+                {cat.label}
+              </p>
+              <p
+                style={{
+                  fontFamily: "var(--font-sans)",
+                  fontSize: 14,
+                  fontWeight: 300,
+                  lineHeight: 1.7,
+                  color: "rgba(28,20,16,.78)",
+                }}
+              >
+                {cat.skills.map(s => s.name).join(" · ")}
+              </p>
+            </motion.div>
           ))}
         </motion.div>
-
-        {/* Skill pills */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            variants={tabContentVariant}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-          >
-            <motion.div
-              variants={staggerContainerFast}
-              initial="hidden"
-              animate="visible"
-              className="flex flex-wrap justify-center gap-2.5"
-            >
-              {activeCategory.skills.map((skill) => (
-                <motion.div key={skill.name} variants={fadeInUp}>
-                  <SkillPill
-                    name={skill.name}
-                    className="border-white/15 bg-white/6 text-white/60 hover:border-teal-400/40 hover:bg-teal-500/10 hover:text-teal-300"
-                  />
-                </motion.div>
-              ))}
-            </motion.div>
-
-            <p className="mt-8 text-center text-xs text-white/50">
-              {activeCategory.skills.length} technologies in {activeTab}
-            </p>
-          </motion.div>
-        </AnimatePresence>
       </div>
     </section>
   )

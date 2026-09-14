@@ -5,7 +5,7 @@ import { Loader2 } from "lucide-react"
 import type { ButtonHTMLAttributes } from "react"
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "outline" | "ghost" | "glass"
+  variant?: "primary" | "outline" | "ghost"
   size?: "sm" | "md" | "lg"
   href?: string
   download?: boolean | string
@@ -26,22 +26,18 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base =
-    "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus-ring disabled:opacity-50 disabled:cursor-not-allowed select-none"
+    "inline-flex items-center justify-center gap-2 font-medium transition-opacity duration-150 focus-ring disabled:opacity-40 disabled:cursor-not-allowed select-none"
 
   const variants = {
-    primary:
-      "bg-teal-500 hover:bg-teal-400 text-white shadow-[0_0_24px_rgba(0,168,181,0.3)] hover:shadow-[0_0_32px_rgba(0,168,181,0.5)]",
-    outline:
-      "border border-white/20 text-white/85 hover:bg-white/10 hover:border-teal-400/50 backdrop-blur-sm",
-    ghost: "text-white/60 hover:text-white hover:bg-white/10",
-    glass:
-      "bg-teal-400/15 hover:bg-teal-400/25 text-teal-300 hover:text-teal-200 border border-teal-400/40 hover:border-teal-400/70 backdrop-blur-md shadow-[0_0_20px_rgba(0,168,181,0.20),inset_0_1px_0_rgba(255,255,255,0.10)] hover:shadow-[0_0_30px_rgba(0,168,181,0.35),inset_0_1px_0_rgba(255,255,255,0.15)]",
+    primary: "bg-[#7a2a1e] text-[#f7f2e8] hover:opacity-85",
+    outline: "border border-[rgba(122,42,30,.35)] text-[#7a2a1e] hover:border-[#7a2a1e] hover:opacity-85",
+    ghost:   "text-[rgba(28,20,16,.60)] hover:text-[#1c1410]",
   }
 
   const sizes = {
-    sm: "px-4 py-2 text-sm",
-    md: "px-6 py-2.5 text-sm",
-    lg: "px-8 py-3.5 text-base",
+    sm: "px-3.5 py-1.5 text-xs tracking-wide",
+    md: "px-5 py-2.5 text-sm",
+    lg: "px-6 py-3 text-sm tracking-wide",
   }
 
   const classes = cn(base, variants[variant], sizes[size], className)

@@ -1,19 +1,27 @@
 import type { Metadata } from "next"
-import { Poppins, Open_Sans } from "next/font/google"
-import { ThemeProvider } from "@/components/providers/ThemeProvider"
+import { Newsreader, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
 import "./globals.css"
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const newsreader = Newsreader({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["300", "400"],
+  style: ["normal", "italic"],
   display: "swap",
 })
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
+  weight: ["400", "500"],
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+})
+
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -118,7 +126,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${openSans.variable} ${poppins.variable}`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${newsreader.variable} ${ibmPlexMono.variable} ${ibmPlexSans.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
@@ -126,7 +137,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen overflow-x-hidden">
-        <ThemeProvider>{children}</ThemeProvider>
+        {children}
       </body>
     </html>
   )

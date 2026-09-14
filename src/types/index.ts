@@ -13,8 +13,11 @@ export interface Stat {
   label: string
 }
 
+export type SkillLevel = "expert" | "proficient" | "familiar"
+
 export interface Skill {
   name: string
+  level?: SkillLevel
 }
 
 export interface SkillCategory {

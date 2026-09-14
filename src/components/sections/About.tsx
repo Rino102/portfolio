@@ -1,83 +1,107 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { SectionHeader } from "@/components/ui/SectionHeader"
-import { StatCard } from "@/components/ui/StatCard"
-import { ABOUT_NARRATIVE, ABOUT_METRICS } from "@/data/resume"
-import { fadeInUp, slideInLeft, staggerContainer } from "@/hooks/useAnimationVariants"
+import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from "@/hooks/useAnimationVariants"
+import { ABOUT_PULL_QUOTE, ABOUT_SHORT_BODY, ABOUT_CAPABILITIES } from "@/data/resume"
 
-const STRENGTHS = [
-  { icon: "🏗️", label: "System Architecture", desc: "Scalable, secure, maintainable architectures for complex applications" },
-  { icon: "🚀", label: "Agile Delivery", desc: "Sprint planning, risk management, and on-time, on-budget execution" },
-  { icon: "🤝", label: "Stakeholder Management", desc: "Bridging technical and business teams to ensure alignment" },
-  { icon: "🤖", label: "AI Integration", desc: "Integrating cutting-edge AI into production-grade systems" },
-]
+const VP = { once: true, amount: 0.15 }
 
 export function About() {
   return (
-    <section id="about" className="section-py relative bg-[rgba(4,19,39,0.50)] overflow-hidden">
-      {/* Teal ambient glow — top right */}
-      <div className="pointer-events-none absolute -top-32 right-0 h-[480px] w-[480px] rounded-full bg-teal-500/20 blur-[120px]" />
-      {/* Orange ambient glow — bottom left */}
-      <div className="pointer-events-none absolute bottom-0 -left-20 h-80 w-80 rounded-full bg-orange-500/15 blur-[100px]" />
+    <section id="about" style={{ padding: "52px 40px", borderBottom: "1px solid rgba(28,20,16,.10)" }}>
+      <div className="mx-auto" style={{ maxWidth: 1088 }}>
+        <motion.p
+          className="section-label mb-10"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+        >
+          01 / About
+        </motion.p>
 
-      <div className="relative mx-auto max-w-6xl px-6">
-        <SectionHeader
-          title="About Me"
-          subtitle="A decade of building. A career of growing. A mindset of shipping."
-          dark
-        />
-
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left: Narrative */}
+        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 56 }}>
+          {/* Left — pull quote + body */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={VP}
           >
-            <div className="space-y-4">
-              {ABOUT_NARRATIVE.split("\n\n").map((para, i) => (
-                <p key={i} className="text-base leading-relaxed text-white/70">
-                  {para}
-                </p>
-              ))}
-            </div>
+            <p
+              className="mb-5"
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: 21,
+                fontWeight: 400,
+                fontStyle: "italic",
+                lineHeight: 1.5,
+                color: "#1c1410",
+              }}
+            >
+              {ABOUT_PULL_QUOTE}
+            </p>
+            <p
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: 15,
+                fontWeight: 300,
+                lineHeight: 1.72,
+                color: "rgba(28,20,16,.72)",
+              }}
+            >
+              {ABOUT_SHORT_BODY}
+            </p>
           </motion.div>
 
-          {/* Right: Metric cards */}
+          {/* Right — capability rows staggered */}
           <motion.div
+            className="flex flex-col"
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="grid grid-cols-2 gap-4 content-start"
+            viewport={VP}
           >
-            {ABOUT_METRICS.map((metric, i) => (
-              <StatCard key={metric.label} metric={metric} index={i} dark />
+            {ABOUT_CAPABILITIES.map((cap, i) => (
+              <motion.div
+                key={cap.title}
+                variants={slideInRight}
+                style={{
+                  borderTop: "1px solid rgba(28,20,16,.14)",
+                  paddingTop: 20,
+                  paddingBottom: 20,
+                  borderBottom:
+                    i === ABOUT_CAPABILITIES.length - 1
+                      ? "1px solid rgba(28,20,16,.14)"
+                      : undefined,
+                }}
+              >
+                <p
+                  className="mb-1"
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 14.5,
+                    fontWeight: 500,
+                    color: "#1c1410",
+                  }}
+                >
+                  {cap.title}
+                </p>
+                <p
+                  style={{
+                    fontFamily: "var(--font-sans)",
+                    fontSize: 13.5,
+                    fontWeight: 300,
+                    lineHeight: 1.6,
+                    color: "rgba(28,20,16,.65)",
+                  }}
+                >
+                  {cap.body}
+                </p>
+              </motion.div>
             ))}
           </motion.div>
         </div>
-
-        <motion.div
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {STRENGTHS.map((s) => (
-              <div
-                key={s.label}
-                className="dark-glass dark-glass-hover rounded-xl p-4"
-              >
-                <p className="mb-1 text-base">{s.icon}</p>
-                <p className="text-sm font-semibold text-white mb-1">{s.label}</p>
-                <p className="text-xs text-white/60 leading-relaxed">{s.desc}</p>
-              </div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </section>
   )

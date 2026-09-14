@@ -1,137 +1,150 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Mail, Phone, ExternalLink, MapPin, ArrowUpRight } from "lucide-react"
-import { SectionHeader } from "@/components/ui/SectionHeader"
-import { ContactForm } from "@/components/ui/ContactForm"
+import { fadeInUp, slideInLeft, slideInRight } from "@/hooks/useAnimationVariants"
 import { PERSONAL } from "@/data/resume"
-import { slideInLeft, slideInRight } from "@/hooks/useAnimationVariants"
+import { ContactForm } from "@/components/ui/ContactForm"
 
-const CONTACT_ITEMS = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: PERSONAL.email,
-    href: `mailto:${PERSONAL.email}`,
-  },
-  {
-    icon: Phone,
-    label: "Phone",
-    value: PERSONAL.phone,
-    href: `tel:${PERSONAL.phone.replace(/\s/g, "")}`,
-  },
-  {
-    icon: ExternalLink,
-    label: "LinkedIn",
-    value: PERSONAL.linkedin,
-    href: PERSONAL.linkedinUrl,
-    external: true,
-  },
-  {
-    icon: ExternalLink,
-    label: "Github",
-    value: PERSONAL.github,
-    href: PERSONAL.githubUrl,
-    external: true,
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: PERSONAL.location,
-    href: undefined,
-  },
+const VP = { once: true, amount: 0.1 }
+
+const CONTACT_LINKS = [
+  { label: "Email",    value: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
+  { label: "Phone",    value: PERSONAL.phone,    href: `tel:${PERSONAL.phone.replace(/\s/g, "")}` },
+  { label: "LinkedIn", value: PERSONAL.linkedin, href: PERSONAL.linkedinUrl, external: true },
+  { label: "GitHub",   value: PERSONAL.github,   href: PERSONAL.githubUrl,  external: true },
 ]
 
 export function Contact() {
   return (
-    <section id="contact" className="section-py relative bg-[rgba(4,19,39,0.50)] overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(0,168,181,0.20),transparent)]" />
-      <div className="pointer-events-none absolute -top-10 right-0 h-72 w-72 rounded-full bg-orange-500/12 blur-[90px]" />
-
-      <div className="relative mx-auto max-w-6xl px-6">
-        <SectionHeader
-          title="Get In Touch"
-          subtitle="Open to new opportunities, collaborations, and interesting conversations."
-          align="center"
-          dark
-        />
-
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left: Contact info */}
+    <section
+      id="contact"
+      style={{ backgroundColor: "#1c1410", padding: "72px 40px" }}
+    >
+      <div className="mx-auto" style={{ maxWidth: 1088 }}>
+        <div
+          className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]"
+          style={{ gap: "52px 64px" }}
+        >
+          {/* Left */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className="space-y-6"
+            viewport={VP}
           >
-            <div>
-              <h3 className="text-xl font-bold text-white mb-2">
-                Let&apos;s build something exceptional.
-              </h3>
-              <p className="text-sm leading-relaxed text-white/70">
-                Whether you&apos;re looking for a technical architect to design your next system, a
-                project manager to lead delivery, or a strategic consultant to align your tech
-                roadmap — I&apos;d love to connect.
-              </p>
-            </div>
+            <h2
+              className="mb-5 text-balance"
+              style={{
+                fontFamily: "var(--font-serif)",
+                fontSize: "clamp(30px, 3.8vw, 44px)",
+                fontWeight: 300,
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em",
+                color: "#f7f2e8",
+              }}
+            >
+              Let&apos;s talk about your delivery date.
+            </h2>
+            <p
+              className="mb-10"
+              style={{
+                fontFamily: "var(--font-sans)",
+                fontSize: 15,
+                fontWeight: 300,
+                lineHeight: 1.72,
+                color: "rgba(247,242,232,.62)",
+              }}
+            >
+              Whether you need an architect, a project manager, or both — I&apos;m open to conversations about complex delivery challenges.
+            </p>
 
-            <div className="space-y-3">
-              {CONTACT_ITEMS.map((item) => (
-                <div key={item.label} className="dark-glass dark-glass-hover rounded-xl p-4">
-                  {item.href ? (
-                    <a
-                      href={item.href}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 group"
-                    >
-                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-teal-500/15">
-                        <item.icon className="h-4 w-4 text-teal-400" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <p className="text-xs text-white/50 mb-0.5">{item.label}</p>
-                        <p className="text-sm text-white truncate group-hover:text-teal-400 transition-colors">
-                          {item.value}
-                        </p>
-                      </div>
-                      {item.external && (
-                        <ArrowUpRight className="h-3.5 w-3.5 text-white/30 group-hover:text-teal-400 transition-colors flex-shrink-0" />
-                      )}
-                    </a>
-                  ) : (
-                    <div className="flex items-center gap-4">
-                      <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-teal-500/15">
-                        <item.icon className="h-4 w-4 text-teal-400" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-white/50 mb-0.5">{item.label}</p>
-                        <p className="text-sm text-white">{item.value}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
+            <div>
+              {CONTACT_LINKS.map((item, i) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "88px 1fr",
+                    gap: 16,
+                    padding: "14px 0",
+                    borderTop: i === 0 ? "1px solid rgba(247,242,232,.10)" : undefined,
+                    borderBottom: "1px solid rgba(247,242,232,.10)",
+                    textDecoration: "none",
+                    alignItems: "center",
+                  }}
+                >
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono)",
+                      fontSize: 10.5,
+                      letterSpacing: ".12em",
+                      textTransform: "uppercase",
+                      color: "rgba(247,242,232,.38)",
+                    }}
+                  >
+                    {item.label}
+                  </span>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-sans)",
+                      fontSize: 13.5,
+                      color: "#f7f2e8",
+                    }}
+                  >
+                    {item.value}
+                  </span>
+                </a>
               ))}
             </div>
-
-            <p className="text-xs text-white/40">
-              Usually responds within 24 hours · Open to remote opportunities worldwide
-            </p>
           </motion.div>
 
-          {/* Right: Form — white glass panel pops on dark bg */}
+          {/* Right — form */}
           <motion.div
             variants={slideInRight}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={VP}
           >
-            <div className="glass rounded-2xl p-6 md:p-8">
-              <h3 className="text-base font-semibold text-white/90 mb-6">Send a Message</h3>
-              <ContactForm />
-            </div>
+            <ContactForm dark />
           </motion.div>
         </div>
+
+        {/* Footer credit */}
+        <motion.div
+          className="flex flex-wrap items-center justify-between"
+          variants={fadeInUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+          style={{
+            marginTop: 60,
+            paddingTop: 24,
+            borderTop: "1px solid rgba(247,242,232,.08)",
+            gap: 12,
+          }}
+        >
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 11,
+              color: "rgba(247,242,232,.28)",
+            }}
+          >
+            © 2026 Rino Robinson
+          </p>
+          <p
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: 10.5,
+              color: "rgba(247,242,232,.22)",
+            }}
+          >
+            PMP® is a registered mark of the Project Management Institute
+          </p>
+        </motion.div>
       </div>
     </section>
   )

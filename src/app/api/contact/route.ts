@@ -21,7 +21,6 @@ export async function POST(req: NextRequest) {
 
   const { name, email, subject, message } = parsed.data
 
-  // ✅ IMPORTANT: initialize here
   const resend = new Resend(process.env.RESEND_API_KEY)
 
   const contactEmail = process.env.CONTACT_EMAIL ?? "rlrino102@gmail.com"
@@ -34,28 +33,28 @@ export async function POST(req: NextRequest) {
       subject: `Rino - PM - Enquiry - ${subject}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-          <h2 style="color: #6366f1; margin-bottom: 24px;">New Message from Portfolio</h2>
+          <h2 style="color: #2438c8; margin-bottom: 24px;">New Message from Portfolio</h2>
           <table style="width: 100%; border-collapse: collapse;">
-            <tr style="border-bottom: 1px solid #e2e8f0;">
-              <td style="padding: 12px 0; color: #64748b; width: 100px; font-size: 14px;">Name</td>
-              <td style="padding: 12px 0; color: #1e293b; font-size: 14px; font-weight: 600;">${name}</td>
+            <tr style="border-bottom: 1px solid #dad8cf;">
+              <td style="padding: 12px 0; color: #4a5565; width: 100px; font-size: 14px;">Name</td>
+              <td style="padding: 12px 0; color: #0e1624; font-size: 14px; font-weight: 600;">${name}</td>
             </tr>
-            <tr style="border-bottom: 1px solid #e2e8f0;">
-              <td style="padding: 12px 0; color: #64748b; font-size: 14px;">Email</td>
-              <td style="padding: 12px 0; color: #1e293b; font-size: 14px;">${email}</td>
+            <tr style="border-bottom: 1px solid #dad8cf;">
+              <td style="padding: 12px 0; color: #4a5565; font-size: 14px;">Email</td>
+              <td style="padding: 12px 0; color: #0e1624; font-size: 14px;">${email}</td>
             </tr>
-            <tr style="border-bottom: 1px solid #e2e8f0;">
-              <td style="padding: 12px 0; color: #64748b; font-size: 14px;">Subject</td>
-              <td style="padding: 12px 0; color: #1e293b; font-size: 14px;">${subject}</td>
+            <tr style="border-bottom: 1px solid #dad8cf;">
+              <td style="padding: 12px 0; color: #4a5565; font-size: 14px;">Subject</td>
+              <td style="padding: 12px 0; color: #0e1624; font-size: 14px;">${subject}</td>
             </tr>
           </table>
           <div style="margin-top: 24px;">
-            <p style="color: #64748b; font-size: 14px; margin-bottom: 8px;">Message:</p>
-            <div style="background: #f8fafc; border-left: 3px solid #6366f1; padding: 16px; border-radius: 4px; color: #1e293b; font-size: 14px; line-height: 1.6;">
+            <p style="color: #4a5565; font-size: 14px; margin-bottom: 8px;">Message:</p>
+            <div style="background: #f5f4ef; border-left: 3px solid #2438c8; padding: 16px; border-radius: 4px; color: #0e1624; font-size: 14px; line-height: 1.6;">
               ${message.replace(/\n/g, "<br/>")}
             </div>
           </div>
-          <p style="margin-top: 24px; color: #94a3b8; font-size: 12px;">Sent from rinorobinson.dev portfolio contact form</p>
+          <p style="margin-top: 24px; color: #8e99ab; font-size: 12px;">Sent from rinorobinson.com portfolio contact form</p>
         </div>
       `,
     })

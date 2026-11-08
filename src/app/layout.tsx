@@ -1,46 +1,43 @@
 import type { Metadata } from "next"
-import { Newsreader, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google"
+import { Bricolage_Grotesque, Inter, JetBrains_Mono } from "next/font/google"
 import "./globals.css"
 
-const newsreader = Newsreader({
-  variable: "--font-serif",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
   display: "swap",
 })
 
-const ibmPlexMono = IBM_Plex_Mono({
-  variable: "--font-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400", "500"],
   display: "swap",
 })
 
-const ibmPlexSans = IBM_Plex_Sans({
-  variable: "--font-sans",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains",
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
   display: "swap",
 })
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rinorobinson.com"),
   title: {
-    default: "Rino Robinson — Technical Architect & Project Manager",
+    default: "Rino Robinson — Technical Project Manager",
     template: "%s | Rino Robinson",
   },
   description:
-    "PMP-certified Technical Architect and Project Manager with 11+ years of experience building scalable MERN stack products across healthcare, SaaS, and enterprise domains.",
+    "PMP-certified Technical Project Manager with 12+ years in IT. I turn unclear requirements into MERN-stack products that ship on time, pass audits and stay maintainable after handover.",
   keywords: [
-    "Technical Architect",
+    "Technical Project Manager",
     "Project Manager",
     "PMP Certified",
     "MERN Stack",
     "Next.js",
     "React",
     "TypeScript",
-    "Full Stack Developer",
+    "Data Migration",
+    "Rocketlane",
     "Chennai",
     "India",
     "Healthcare Technology",
@@ -54,24 +51,24 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://rinorobinson.com",
-    title: "Rino Robinson — Technical Architect & Project Manager",
+    title: "Rino Robinson — Technical Project Manager",
     description:
-      "PMP-certified Technical Architect with 11+ years of MERN stack expertise. Speaker, leader, and builder of production-grade software.",
+      "PMP-certified Technical Project Manager with 12+ years in IT. Delivery led by someone who reads the code.",
     siteName: "Rino Robinson Portfolio",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Rino Robinson — Technical Architect & Project Manager",
+        alt: "Rino Robinson — Technical Project Manager",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rino Robinson — Technical Architect & Project Manager",
+    title: "Rino Robinson — Technical Project Manager",
     description:
-      "PMP-certified Technical Architect with 11+ years of MERN stack expertise. Building scalable systems, leading teams, delivering results.",
+      "PMP-certified Technical Project Manager with 12+ years in IT. Delivery led by someone who reads the code.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -89,7 +86,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Rino Robinson",
-  jobTitle: "Technical Architect & Project Manager",
+  jobTitle: "Technical Project Manager",
   email: "rlrino102@gmail.com",
   telephone: "+918012828581",
   address: {
@@ -105,7 +102,7 @@ const jsonLd = {
     "Node.js",
     "TypeScript",
     "Project Management",
-    "System Architecture",
+    "Data Migration",
     "MERN Stack",
     "AI Applications",
   ],
@@ -126,19 +123,21 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${newsreader.variable} ${ibmPlexMono.variable} ${ibmPlexSans.variable}`}
-    >
+    <html lang="en" className={`${bricolage.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {/* Scroll reveals are framer-motion, which ships opacity:0 in the markup.
+            Without JS those sections would never appear, so force them visible. */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<style>[style*="opacity:0"]{opacity:1!important;transform:none!important}</style>`,
+          }}
+        />
       </head>
-      <body className="min-h-screen overflow-x-hidden">
-        {children}
-      </body>
+      <body className="min-h-screen overflow-x-hidden">{children}</body>
     </html>
   )
 }

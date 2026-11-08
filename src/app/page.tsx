@@ -1,33 +1,35 @@
 import { Navbar } from "@/components/layout/Navbar"
-import { SidebarNav } from "@/components/layout/SidebarNav"
 import { HeroBanner } from "@/components/sections/HeroBanner"
+import { WorksWith } from "@/components/sections/WorksWith"
 import { About } from "@/components/sections/About"
-import { Competencies } from "@/components/sections/Competencies"
+import { Expertise } from "@/components/sections/Expertise"
 import { Experience } from "@/components/sections/Experience"
 import { Projects } from "@/components/sections/Projects"
+import { Process } from "@/components/sections/Process"
+import { AIDelivery } from "@/components/sections/AIDelivery"
 import { Skills } from "@/components/sections/Skills"
+import { LinkedInNotes } from "@/components/sections/LinkedInNotes"
 import { Credentials } from "@/components/sections/Credentials"
-import { FieldNotes } from "@/components/sections/FieldNotes"
 import { Contact } from "@/components/sections/Contact"
 
 export default function HomePage() {
   return (
-    <div style={{ width: "100%", backgroundColor: "#f7f2e8" }}>
+    <>
       <Navbar />
-      <HeroBanner />
-      <div className="grid grid-cols-1 lg:grid-cols-[92px_1fr]">
-        <SidebarNav />
-        <div>
-          <About />
-          <Competencies />
-          <Experience />
-          <Projects />
-          <Skills />
-          <Credentials />
-          <FieldNotes />
-        </div>
-      </div>
-      <Contact />
-    </div>
+      <main>
+        <HeroBanner />
+        <WorksWith />
+        <About />
+        <Expertise />
+        <Experience />
+        <Projects />
+        <Process />
+        <AIDelivery />
+        <Skills />
+        <LinkedInNotes />
+        <Credentials />
+        <Contact />
+      </main>
+    </>
   )
 }

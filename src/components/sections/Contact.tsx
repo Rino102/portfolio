@@ -1,150 +1,84 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { fadeInUp, slideInLeft, slideInRight } from "@/hooks/useAnimationVariants"
-import { PERSONAL } from "@/data/resume"
+import { fadeInUp } from "@/hooks/useAnimationVariants"
+import { CONTACT_BODY, CONTACT_HEADLINE, PERSONAL } from "@/data/resume"
 import { ContactForm } from "@/components/ui/ContactForm"
+import { SectionLabel } from "@/components/ui/SectionLabel"
 
-const VP = { once: true, amount: 0.1 }
+const VP = { once: true, amount: 0.08 }
 
-const CONTACT_LINKS = [
-  { label: "Email",    value: PERSONAL.email,    href: `mailto:${PERSONAL.email}` },
-  { label: "Phone",    value: PERSONAL.phone,    href: `tel:${PERSONAL.phone.replace(/\s/g, "")}` },
-  { label: "LinkedIn", value: PERSONAL.linkedin, href: PERSONAL.linkedinUrl, external: true },
-  { label: "GitHub",   value: PERSONAL.github,   href: PERSONAL.githubUrl,  external: true },
+const DETAILS = [
+  { label: "Email", value: PERSONAL.email, href: `mailto:${PERSONAL.email}` },
+  { label: "Phone", value: PERSONAL.phone, href: `tel:${PERSONAL.phone.replace(/\s/g, "")}` },
+  { label: "LinkedIn", value: PERSONAL.linkedin, href: PERSONAL.linkedinUrl },
+  { label: "Website", value: PERSONAL.website, href: PERSONAL.websiteUrl },
 ]
 
 export function Contact() {
+  const year = new Date().getFullYear()
+
   return (
-    <section
-      id="contact"
-      style={{ backgroundColor: "#1c1410", padding: "72px 40px" }}
-    >
-      <div className="mx-auto" style={{ maxWidth: 1088 }}>
-        <div
-          className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr]"
-          style={{ gap: "52px 64px" }}
-        >
-          {/* Left */}
+    <section id="contact" className="bg-ink on-ink text-paper pt-28 pb-18">
+      <div className="wrap flex flex-col gap-20">
+        <div className="flex flex-wrap gap-14">
           <motion.div
-            variants={slideInLeft}
+            className="flex min-w-0 flex-[1_1_420px] flex-col gap-6"
+            variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={VP}
           >
+            <SectionLabel onInk>10 / Contact</SectionLabel>
             <h2
-              className="mb-5 text-balance"
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: "clamp(30px, 3.8vw, 44px)",
-                fontWeight: 300,
-                lineHeight: 1.1,
-                letterSpacing: "-0.02em",
-                color: "#f7f2e8",
-              }}
+              className="disp font-bold text-balance"
+              style={{ fontSize: "clamp(34px, 5vw, 64px)", lineHeight: 1.04 }}
             >
-              Let&apos;s talk about your delivery date.
+              {CONTACT_HEADLINE}
             </h2>
-            <p
-              className="mb-10"
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 15,
-                fontWeight: 300,
-                lineHeight: 1.72,
-                color: "rgba(247,242,232,.62)",
-              }}
-            >
-              Whether you need an architect, a project manager, or both — I&apos;m open to conversations about complex delivery challenges.
-            </p>
+            <p className="text-on-ink max-w-[460px] text-[17px] leading-relaxed">{CONTACT_BODY}</p>
 
-            <div>
-              {CONTACT_LINKS.map((item, i) => (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target={item.external ? "_blank" : undefined}
-                  rel={item.external ? "noopener noreferrer" : undefined}
+            <dl className="mt-2 flex flex-col">
+              {DETAILS.map((detail, i) => (
+                <div
+                  key={detail.label}
+                  className="flex flex-wrap gap-x-6 gap-y-2 border-t border-[#2a3548] py-4"
                   style={{
-                    display: "grid",
-                    gridTemplateColumns: "88px 1fr",
-                    gap: 16,
-                    padding: "14px 0",
-                    borderTop: i === 0 ? "1px solid rgba(247,242,232,.10)" : undefined,
-                    borderBottom: "1px solid rgba(247,242,232,.10)",
-                    textDecoration: "none",
-                    alignItems: "center",
+                    borderBottom: i === DETAILS.length - 1 ? "1px solid #2a3548" : undefined,
                   }}
                 >
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono)",
-                      fontSize: 10.5,
-                      letterSpacing: ".12em",
-                      textTransform: "uppercase",
-                      color: "rgba(247,242,232,.38)",
-                    }}
-                  >
-                    {item.label}
-                  </span>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-sans)",
-                      fontSize: 13.5,
-                      color: "#f7f2e8",
-                    }}
-                  >
-                    {item.value}
-                  </span>
-                </a>
+                  <dt className="mono text-on-ink-dim flex-[0_0_90px]">{detail.label}</dt>
+                  <dd className="min-w-0">
+                    <a
+                      href={detail.href}
+                      {...(detail.label === "LinkedIn" || detail.label === "Website"
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                      className="focus-ring text-paper hover:text-saffron text-base break-words transition-colors"
+                    >
+                      {detail.value}
+                    </a>
+                  </dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </motion.div>
 
-          {/* Right — form */}
           <motion.div
-            variants={slideInRight}
+            className="min-w-0 flex-[1_1_400px] self-start"
+            variants={fadeInUp}
             initial="hidden"
             whileInView="visible"
             viewport={VP}
           >
-            <ContactForm dark />
+            <ContactForm />
           </motion.div>
         </div>
 
-        {/* Footer credit */}
-        <motion.div
-          className="flex flex-wrap items-center justify-between"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VP}
-          style={{
-            marginTop: 60,
-            paddingTop: 24,
-            borderTop: "1px solid rgba(247,242,232,.08)",
-            gap: 12,
-          }}
-        >
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 11,
-              color: "rgba(247,242,232,.28)",
-            }}
-          >
-            © 2026 Rino Robinson
-          </p>
-          <p
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: 10.5,
-              color: "rgba(247,242,232,.22)",
-            }}
-          >
-            PMP® is a registered mark of the Project Management Institute
-          </p>
-        </motion.div>
+        <div className="flex flex-wrap justify-between gap-3 border-t border-[#2a3548] pt-6">
+          <span className="mono text-on-ink-dim">© {year} Rino Robinson</span>
+          <span className="mono text-on-ink-dim">PMP · Chennai, India</span>
+        </div>
       </div>
     </section>
   )

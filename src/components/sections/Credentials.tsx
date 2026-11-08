@@ -1,230 +1,57 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
 import { fadeInUp, scaleIn, staggerContainer } from "@/hooks/useAnimationVariants"
-import { CERTIFICATIONS, EDUCATION } from "@/data/resume"
+import { CREDENTIALS } from "@/data/resume"
+import { Card } from "@/components/ui/Card"
+import { SectionLabel } from "@/components/ui/SectionLabel"
 
 const VP = { once: true, amount: 0.1 }
 
 export function Credentials() {
-  const pmp = CERTIFICATIONS[0]!
-  const edu = EDUCATION[0]!
-  const speakers = CERTIFICATIONS.slice(1)
-
-  const cardStyle: React.CSSProperties = {
-    backgroundColor: "#ffffff",
-    border: "1px solid rgba(28,20,16,.14)",
-    padding: "24px",
-    display: "flex",
-    flexDirection: "column",
-    gap: 12,
-  }
-
   return (
-    <section
-      id="credentials"
-      style={{ backgroundColor: "#efe8dc", padding: "52px 40px" }}
-    >
-      <div className="mx-auto" style={{ maxWidth: 1088 }}>
-        <motion.p
-          className="section-label mb-1"
+    <section id="credentials" className="bg-band py-24">
+      <div className="wrap flex flex-col gap-10">
+        <motion.div
+          className="flex flex-col gap-4"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={VP}
         >
-          06 / Credentials
-        </motion.p>
-        <motion.p
-          className="mb-10"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={VP}
-          style={{
-            fontFamily: "var(--font-serif)",
-            fontSize: 28,
-            color: "#1c1410",
-          }}
-        >
-          Certification, speaking, education
-        </motion.p>
+          <SectionLabel>09 / Credentials</SectionLabel>
+          <h2 className="h-section text-ink">Certification, speaking, education</h2>
+        </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+          className="grid gap-5"
+          style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(260px, 100%), 1fr))" }}
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={VP}
         >
-          {/* PMP */}
-          <motion.div variants={scaleIn} style={cardStyle}>
-            <div className="flex items-center gap-2">
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                  letterSpacing: ".12em",
-                  textTransform: "uppercase",
-                  color: "rgba(28,20,16,.55)",
-                }}
-              >
-                Certification
-              </p>
-              <span
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 10,
-                  letterSpacing: ".08em",
-                  textTransform: "uppercase",
-                  color: "#1f7a4d",
-                  border: "1px solid #1f7a4d",
-                  padding: "1px 6px",
-                  borderRadius: 2,
-                }}
-              >
-                Active
-              </span>
-            </div>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: 19,
-                color: "#1c1410",
-                lineHeight: 1.3,
-              }}
-            >
-              {pmp.title}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 13.5,
-                fontWeight: 300,
-                color: "rgba(28,20,16,.65)",
-                lineHeight: 1.6,
-              }}
-            >
-              {pmp.issuer}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 13.5,
-                fontWeight: 300,
-                color: "rgba(28,20,16,.65)",
-                lineHeight: 1.6,
-              }}
-            >
-              {pmp.description}
-            </p>
-            {pmp.credentialUrl && (
-              <a
-                href={pmp.credentialUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ox-link mt-auto self-start"
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: 13,
-                  fontWeight: 400,
-                }}
-              >
-                View credential
-              </a>
-            )}
-          </motion.div>
-
-          {/* Education */}
-          <motion.div variants={scaleIn} style={cardStyle}>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 11,
-                letterSpacing: ".12em",
-                textTransform: "uppercase",
-                color: "rgba(28,20,16,.55)",
-              }}
-            >
-              Education
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: 19,
-                color: "#1c1410",
-                lineHeight: 1.3,
-              }}
-            >
-              {edu.degree}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 13.5,
-                fontWeight: 300,
-                color: "rgba(28,20,16,.65)",
-              }}
-            >
-              {edu.field}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 13.5,
-                fontWeight: 300,
-                color: "rgba(28,20,16,.65)",
-                lineHeight: 1.6,
-              }}
-            >
-              {edu.institution}, {edu.location}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-mono)",
-                fontSize: 12,
-                color: "rgba(28,20,16,.45)",
-              }}
-            >
-              {edu.year}
-            </p>
-          </motion.div>
-
-          {/* Speakers */}
-          {speakers.map(cert => (
-            <motion.div key={cert.title} variants={scaleIn} style={cardStyle}>
-              <p
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: 11,
-                  letterSpacing: ".12em",
-                  textTransform: "uppercase",
-                  color: "rgba(28,20,16,.55)",
-                }}
-              >
-                Speaker · {cert.date}
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-serif)",
-                  fontSize: 19,
-                  color: "#1c1410",
-                  lineHeight: 1.3,
-                }}
-              >
-                {cert.title.replace("Speaker — ", "")}
-              </p>
-              <p
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: 13.5,
-                  fontWeight: 300,
-                  color: "rgba(28,20,16,.65)",
-                  lineHeight: 1.6,
-                }}
-              >
-                {cert.description}
-              </p>
+          {CREDENTIALS.map((item) => (
+            <motion.div key={item.title} variants={scaleIn}>
+              <Card hover className="flex h-full flex-col gap-3 p-7">
+                <span className={item.kind === "certification" ? "mono text-green-700" : "mono"}>
+                  {item.label}
+                </span>
+                <h3 className="disp text-ink text-[22px] font-semibold">{item.title}</h3>
+                <p className="text-muted text-sm leading-relaxed">{item.description}</p>
+                {item.credentialUrl && (
+                  <a
+                    href={item.credentialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cobalt-link focus-ring mono mt-auto inline-flex w-fit items-center gap-1.5 pt-2 text-[11px]"
+                  >
+                    Verify
+                    <ArrowUpRight className="h-3 w-3" aria-hidden="true" />
+                  </a>
+                )}
+              </Card>
             </motion.div>
           ))}
         </motion.div>

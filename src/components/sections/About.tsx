@@ -1,107 +1,60 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { fadeInUp, slideInLeft, slideInRight, staggerContainer } from "@/hooks/useAnimationVariants"
-import { ABOUT_PULL_QUOTE, ABOUT_SHORT_BODY, ABOUT_CAPABILITIES } from "@/data/resume"
+import { fadeInUp, scaleIn, staggerContainer } from "@/hooks/useAnimationVariants"
+import { ABOUT_BODY, ABOUT_CARDS, ABOUT_HEADLINE } from "@/data/resume"
+import { Card } from "@/components/ui/Card"
+import { SectionLabel } from "@/components/ui/SectionLabel"
 
 const VP = { once: true, amount: 0.15 }
 
 export function About() {
   return (
-    <section id="about" style={{ padding: "52px 40px", borderBottom: "1px solid rgba(28,20,16,.10)" }}>
-      <div className="mx-auto" style={{ maxWidth: 1088 }}>
-        <motion.p
-          className="section-label mb-10"
+    <section id="about" className="pt-28 pb-24">
+      <div className="wrap flex flex-wrap gap-14">
+        <motion.div
+          className="flex min-w-0 flex-[1_1_360px] flex-col gap-5"
           variants={fadeInUp}
           initial="hidden"
           whileInView="visible"
           viewport={VP}
         >
-          01 / About
-        </motion.p>
+          <SectionLabel>01 / About</SectionLabel>
+          <h2 className="h-section text-ink">{ABOUT_HEADLINE}</h2>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2" style={{ gap: 56 }}>
-          {/* Left — pull quote + body */}
-          <motion.div
-            variants={slideInLeft}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
-          >
-            <p
-              className="mb-5"
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: 21,
-                fontWeight: 400,
-                fontStyle: "italic",
-                lineHeight: 1.5,
-                color: "#1c1410",
-              }}
+        <motion.div
+          className="flex min-w-0 flex-[1_1_480px] flex-col gap-6"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={VP}
+        >
+          {ABOUT_BODY.map((paragraph) => (
+            <motion.p
+              key={paragraph.slice(0, 32)}
+              variants={fadeInUp}
+              className="text-body text-lg leading-[1.7] text-pretty"
             >
-              {ABOUT_PULL_QUOTE}
-            </p>
-            <p
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 15,
-                fontWeight: 300,
-                lineHeight: 1.72,
-                color: "rgba(28,20,16,.72)",
-              }}
-            >
-              {ABOUT_SHORT_BODY}
-            </p>
-          </motion.div>
+              {paragraph}
+            </motion.p>
+          ))}
 
-          {/* Right — capability rows staggered */}
           <motion.div
-            className="flex flex-col"
+            className="grid gap-4 pt-2"
+            style={{ gridTemplateColumns: "repeat(auto-fit, minmax(min(220px, 100%), 1fr))" }}
             variants={staggerContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={VP}
           >
-            {ABOUT_CAPABILITIES.map((cap, i) => (
-              <motion.div
-                key={cap.title}
-                variants={slideInRight}
-                style={{
-                  borderTop: "1px solid rgba(28,20,16,.14)",
-                  paddingTop: 20,
-                  paddingBottom: 20,
-                  borderBottom:
-                    i === ABOUT_CAPABILITIES.length - 1
-                      ? "1px solid rgba(28,20,16,.14)"
-                      : undefined,
-                }}
-              >
-                <p
-                  className="mb-1"
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: 14.5,
-                    fontWeight: 500,
-                    color: "#1c1410",
-                  }}
-                >
-                  {cap.title}
-                </p>
-                <p
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontSize: 13.5,
-                    fontWeight: 300,
-                    lineHeight: 1.6,
-                    color: "rgba(28,20,16,.65)",
-                  }}
-                >
-                  {cap.body}
-                </p>
+            {ABOUT_CARDS.map((card) => (
+              <motion.div key={card.title} variants={scaleIn}>
+                <Card hover className="flex h-full flex-col gap-2 p-6">
+                  <span className="disp text-ink text-xl font-semibold">{card.title}</span>
+                  <span className="text-muted text-sm leading-relaxed">{card.body}</span>
+                </Card>
               </motion.div>
             ))}
           </motion.div>
-        </div>
+        </motion.div>
       </div>
     </section>
   )

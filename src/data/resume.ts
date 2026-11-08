@@ -1,175 +1,163 @@
 import type {
+  AboutCard,
+  AIPractice,
   ContactInfo,
-  Stat,
-  SkillCategory,
+  CredentialEntry,
   ExperienceEntry,
+  ExpertiseItem,
+  HeroStat,
+  LinkedInPost,
+  NavLink,
+  ProcessStep,
   ProjectEntry,
-  CertificationEntry,
-  EducationEntry,
-  AboutMetric,
+  SkillGroup,
 } from "@/types"
 
 export const PERSONAL: ContactInfo = {
   email: "rlrino102@gmail.com",
   phone: "+91 8012828581",
-  linkedin: "in/rinorobinson",
-  linkedinUrl: "https://linkedin.com/in/rinorobinson",
+  linkedin: "linkedin.com/in/rinorobinson",
+  linkedinUrl: "https://www.linkedin.com/in/rinorobinson",
   github: "Rino102",
   githubUrl: "https://github.com/Rino102",
-  location: "Chennai, Tamil Nadu, India",
+  location: "Chennai, India",
+  website: "rinorobinson.com",
+  websiteUrl: "https://rinorobinson.com",
 }
 
-export const HERO_HEADLINE = "I run the plan and I can read the code."
+export const ROLE_TITLE = "Technical Project Manager"
+
+export const AVAILABILITY = "Open to opportunities · Chennai, India"
+
+/* ─── Hero ──────────────────────────────────────────────────── */
+
+export const HERO_HEADLINE_LEAD = "Delivery led by someone who"
+export const HERO_HEADLINE_ACCENT = "reads the code."
 
 export const HERO_SUMMARY =
-  "PMP-certified Project Manager and Technical Architect. Eleven years turning ambiguous requirements into MERN-stack systems that pass audit, hit the committed date, and stay maintainable after handover."
+  "PMP-certified Technical Project Manager with 12+ years in IT. I turn unclear requirements into MERN-stack products that ship on time, pass audits and stay maintainable after handover."
 
-export const ABOUT_PULL_QUOTE =
-  "I bridge the gap between complex technical decisions and the business outcome someone is waiting on."
-
-export const ABOUT_SHORT_BODY =
-  "My path ran frontend engineer → tech lead → Technical Architect and PMP-certified Project Manager. That order matters: I estimate work I have actually done, and I can tell when a status update is optimistic."
-
-export const ABOUT_CAPABILITIES = [
-  {
-    title: "Architecture with a delivery date attached",
-    body:  "MERN, cloud-native infrastructure, AI integration, HIPAA-grade constraints.",
-  },
-  {
-    title: "Delivery leadership, 15 engineers",
-    body:  "Cross-functional squads across time zones, on Scrum and Kanban cadences.",
-  },
-  {
-    title: "Reporting executives actually read",
-    body:  "Risk logs, cost variance, and escalations resolved before they reach the steering committee.",
-  },
-]
-
-export const HERO_STATS = [
-  { label: "Cycle time after Agile rollout", fill: 75, value: "−25%" },
-  { label: "Projects delivered",             fill: 88, value: "40+"  },
-  { label: "Engineers led",                  fill: 60, value: "15"   },
-]
-
-export const AT_A_GLANCE = [
-  { label: "Certification",  value: "PMP® · PMI"   },
-  { label: "Experience",     value: "11+ years"     },
-  { label: "Domains",        value: "Health · SaaS" },
-  { label: "Notice period",  value: "30 days"       },
-]
-
-export const NOW_TEXT =
-  "Leading delivery for an enterprise health platform in Chennai, writing up PMP study notes, and publishing a short field note most weekdays."
-
-export const FIELD_NOTES = [
-  { date: "12 SEP", title: "The status report nobody skims",             tag: "Delivery"   },
-  { date: "11 SEP", title: "Estimating work you have never done",        tag: "Estimation" },
-  { date: "09 SEP", title: "Why my retros run for 25 minutes",           tag: "Agile"      },
-  { date: "08 SEP", title: "Reading a Gantt chart like a risk register", tag: "PMP"        },
-]
-
-export const ABOUT_NARRATIVE = `I'm a PMP-certified Technical Architect and Project Manager with over a decade of hands-on experience building full-stack products that solve real business problems. My journey began in frontend engineering and evolved through leading teams, architecting systems, and owning complete project delivery lifecycles.
-
-Today, I bridge the gap between complex technical decisions and strategic business outcomes — translating ambiguous requirements into scalable architectures, and leading cross-functional teams to ship with confidence. My expertise spans the MERN stack, cloud-native infrastructure, AI integrations, and enterprise-grade custom platforms.
-
-What sets me apart is my dual fluency: I think like an architect and operate like a delivery leader. Whether it's designing a HIPAA-compliant healthcare system, integrating OpenAI into a production SaaS product, or driving a 25% reduction in project cycle times through Agile practices — I bring both the technical depth and the leadership range to get it done.`
-
-export const STATS: Stat[] = [
-  { value: "11+", label: "Years Experience" },
-  { value: "40+", label: "Projects Delivered" },
-  { value: "5+", label: "Industry Domains" },
+export const HERO_STATS: HeroStat[] = [
+  { value: "12+", label: "Years in IT" },
   { value: "PMP", label: "Certified" },
+  { value: "MERN", label: "Hands-on depth" },
+  { value: "Multi", label: "Concurrent clients" },
 ]
 
-export const ABOUT_METRICS: AboutMetric[] = [
+export const HERO_CARDS = [
+  { label: "Currently", value: "Technical PM · Mako IT Lab" },
+  { label: "Credential", value: "PMP® Certified" },
+]
+
+export const WORKS_WITH = [
+  "Scrum",
+  "Kanban",
+  "Jira",
+  "React",
+  "Next.js",
+  "Node.js",
+  "MongoDB",
+  "PostgreSQL",
+  "Rocketlane",
+  "Zoho",
+]
+
+/* ─── 01 About ──────────────────────────────────────────────── */
+
+export const ABOUT_HEADLINE =
+  "I bridge the gap between technical decisions and the business outcome someone is waiting on."
+
+export const ABOUT_BODY = [
+  "My path ran from frontend engineering to team leadership to technical project management. That order matters. I can estimate honestly, challenge an architecture in a review, and tell when a status update is optimistic.",
+  "Today I manage several client projects at once at Mako IT Lab, from healthcare SaaS to Rocketlane custom apps and data migrations, and I use AI tooling daily to speed up documentation, reporting and analysis.",
+]
+
+export const ABOUT_CARDS: AboutCard[] = [
   {
-    value: "11+",
-    label: "Years in Tech",
-    description: "Progressive growth from frontend engineer to Technical Architect & PM",
+    title: "Architecture-aware",
+    body: "MERN stack, integrations and compliance constraints are part of the plan, not a surprise.",
   },
   {
-    value: "25%",
-    label: "Faster Delivery",
-    description: "Agile transformation that reduced project cycle times across the org",
+    title: "Plain reporting",
+    body: "Weekly RAG status, risks and decisions written so a steering group can act on them.",
   },
   {
-    value: "40+",
-    label: "Major Projects",
-    description: "Across healthcare, SaaS, e-commerce, and enterprise platforms",
-  },
-  {
-    value: "15",
-    label: "Team Members Led",
-    description: "Cross-functional engineering teams across multiple time zones",
+    title: "Team first",
+    body: "Clear ownership, short feedback loops and engineers who know why the work matters.",
   },
 ]
 
-export const SKILLS: SkillCategory[] = [
+/* ─── 02 Expertise ──────────────────────────────────────────── */
+
+export const EXPERTISE: ExpertiseItem[] = [
   {
-    label: "Frontend",
-    skills: [
-      { name: "React" }, { name: "Next.js" }, { name: "TypeScript" },
-      { name: "JavaScript ES6+" }, { name: "HTML5 / CSS3" }, { name: "Tailwind" },
-      { name: "SASS" }, { name: "Redux" }, { name: "Framer Motion" },
-    ],
+    title: "Agile delivery",
+    body: "Sprint planning, backlog hygiene and retros that end on time with actions.",
   },
   {
-    label: "Backend & data",
-    skills: [
-      { name: "Node.js" }, { name: "Express" }, { name: "REST" },
-      { name: "MongoDB" }, { name: "PostgreSQL" }, { name: "Redis" },
-    ],
+    title: "Scope and approach docs",
+    body: "Solution design, API mapping and error handling agreed before build starts.",
   },
   {
-    label: "Cloud & AI",
-    skills: [
-      { name: "AWS" }, { name: "Docker" }, { name: "CI/CD" },
-      { name: "OpenAI APIs" }, { name: "LLM integration patterns" },
-    ],
+    title: "Risk and RAID control",
+    body: "Risks, assumptions, issues and dependencies tracked with owners and dates.",
   },
   {
-    label: "Delivery",
-    skills: [
-      { name: "PMP®" }, { name: "Scrum" }, { name: "Kanban" }, { name: "Jira" },
-      { name: "risk management" }, { name: "budgeting" }, { name: "stakeholder management" },
-    ],
+    title: "Stakeholder reporting",
+    body: "RAG status emails, minutes of meeting and burn charts people actually read.",
+  },
+  {
+    title: "Technical review",
+    body: "React, Next.js, Node and MongoDB decisions questioned early, while change is cheap.",
+  },
+  {
+    title: "Client management",
+    body: "Expectation setting, change control and negotiation across concurrent accounts.",
+  },
+  {
+    title: "Data migration",
+    body: "Moves from Zendesk, Zoho, Asana and Google Sheets with validation at each step.",
+  },
+  {
+    title: "Team and hiring",
+    body: "Technical assessments, mentoring and clear ownership inside delivery teams.",
   },
 ]
+
+/* ─── 03 Experience ─────────────────────────────────────────── */
+
+export const EXPERIENCE_INTRO = "From pixels to people to portfolios of projects."
 
 export const EXPERIENCE: ExperienceEntry[] = [
   {
-    company: "Makoitlab",
-    role: "Project Manager",
+    company: "Mako IT Lab",
+    role: "Technical Project Manager",
     badge: "CURRENT",
-    startDate: "Apr 2025",
-    endDate: "Present",
-    location: "Chennai, India",
+    startDate: "Jul 2025",
+    endDate: "Now",
+    location: "Chennai",
     description:
-      "Promoted to lead end-to-end technical and delivery ownership for complex enterprise projects across healthcare, SaaS, and custom application domains.",
+      "Lead delivery across multiple concurrent client projects, covering healthcare SaaS, AI products, Rocketlane custom apps and migrations. Own scope, plans, risks and weekly reporting.",
     achievements: [
       "Architect end-to-end technical solutions for enterprise-level projects spanning healthcare, SaaS, and custom application domains",
       "Define system architecture, technology stack selection, and integration strategies for HIPAA-compliant and AI-powered platforms",
-      "Lead architectural decisions for microservices-based systems using Next.js, Node.js, Python, and cloud infrastructure",
       "Direct cross-functional teams of up to 15 engineers, delivering a 25% reduction in project cycle times through Agile adoption",
-      "Establish coding standards, architectural patterns, and best practices across the engineering organization",
       "Conduct technical due diligence and architectural reviews for all client-facing projects",
     ],
   },
   {
-    company: "Makoitlab",
-    role: "Technical Team Lead",
+    company: "Mako IT Lab",
+    role: "Team Leader",
     badge: "PROMOTED",
     startDate: "Dec 2020",
-    endDate: "Apr 2025",
-    location: "Chennai, India",
+    endDate: "Jun 2025",
+    location: "Chennai",
     description:
-      "Led a team of six engineers in building scalable web applications and high-impact products. Promoted from Senior UI Engineer based on demonstrated technical leadership.",
+      "Led a team of engineers building scalable web applications under tight release cycles. Promoted into project management on the strength of delivery results.",
     achievements: [
       "Led a team of six engineers in developing scalable web applications using Next.js, React, and Node.js",
-      "Architected and delivered multiple high-impact projects including healthcare platforms, AI-powered SaaS solutions, and enterprise applications",
-      "Mentored engineers on advanced frontend architecture, state management patterns, and performance optimization",
-      "Established technical workflows and development processes that improved team productivity and code quality",
-      "Collaborated with stakeholders to translate business requirements into technical specifications and project roadmaps",
+      "Architected and delivered healthcare platforms, AI-powered SaaS solutions, and enterprise applications",
+      "Mentored engineers on frontend architecture, state management patterns, and performance optimization",
     ],
   },
   {
@@ -178,31 +166,27 @@ export const EXPERIENCE: ExperienceEntry[] = [
     badge: "PROMOTED",
     startDate: "Nov 2017",
     endDate: "Nov 2020",
-    location: "Chennai, India",
+    location: "Chennai",
     description:
-      "Developed complex, responsive user interfaces for enterprise applications and led frontend architecture decisions across multiple client projects. Promoted from Graphics Designer.",
+      "Built React and Next.js interfaces for multi-client web applications, with reusable component work and design-to-code handover.",
     achievements: [
       "Developed complex, responsive user interfaces for enterprise applications using modern JavaScript frameworks",
       "Led frontend architecture decisions for multiple client projects across diverse technology stacks",
-      "Demonstrated expertise in project coordination, time management, and requirements analysis",
-      "Strengthened client communication skills and alignment of technical solutions with business vision",
       "Mentored junior developers on frontend best practices and coding standards",
     ],
   },
   {
     company: "TechAffinity Global Pvt Ltd",
-    role: "Graphics Designer & Frontend Developer",
+    role: "Graphic Designer and Frontend Developer",
     startDate: "Feb 2015",
     endDate: "Oct 2017",
-    location: "Chennai, India",
+    location: "Chennai",
     description:
-      "Converted design mockups into pixel-perfect, responsive web experiences. Built a deep foundation in frontend frameworks and cross-platform web development.",
+      "Started in design and HTML, CSS and JavaScript, which is where the habit of caring about the end user began.",
     achievements: [
       "Converted design mockups into pixel-perfect, responsive HTML/CSS implementations",
-      "Mastered multiple frontend frameworks including Bootstrap, Foundation, and Material Design",
       "Developed proficiency in SVG and CSS3 animations for enhanced user experiences",
-      "Contributed to frontend development across diverse stacks: Python, WordPress, Drupal, Ionic, .NET, and Angular",
-      "Built strong foundation in web standards, cross-browser compatibility, and responsive design",
+      "Contributed across diverse stacks: Python, WordPress, Drupal, Ionic, .NET, and Angular",
     ],
   },
   {
@@ -210,174 +194,228 @@ export const EXPERIENCE: ExperienceEntry[] = [
     role: "Web Developer",
     startDate: "Oct 2014",
     endDate: "Jan 2015",
-    location: "Chennai, India",
+    location: "Chennai",
     description:
-      "Began professional career transforming PSD designs into functional, responsive web pages.",
+      "Began professional career turning PSD designs into functional, responsive web pages with HTML5, CSS3 and jQuery.",
     achievements: [
       "Transformed PSD designs into functional, responsive webpages using HTML5, CSS3, and jQuery",
-      "Developed core skills in web development best practices and client collaboration",
-      "Established a strong foundation in cross-browser compatibility and responsive design principles",
+      "Established a foundation in cross-browser compatibility and responsive design principles",
     ],
   },
 ]
 
+/* ─── 04 Selected work ──────────────────────────────────────── */
+
 export const PROJECTS: ProjectEntry[] = [
   {
     name: "OTF Health",
-    domain: "Healthcare",
-    domainColor: "green",
+    domain: "Healthcare SaaS · HIPAA",
+    status: "Delivered",
     description:
-      "Architected a HIPAA-compliant healthcare platform for US-based diagnostic laboratories. Designed secure end-to-end encryption, role-based access control, audit logging, and SteadyMD integration as core pillars of a scalable microservices architecture.",
-    techStack: ["Next.js", "Node.js", "PostgreSQL", "AWS", "SteadyMD", "HIPAA Infrastructure"],
-    outcome: "HIPAA-compliant, production-grade healthcare platform for US diagnostics",
-    period: "Jan 2024 – Present",
+      "Architected and delivered a HIPAA-compliant healthcare platform for US-based diagnostic laboratories, with audit logging, role-based access and secure data handling.",
+    techStack: ["React", "Node.js", "MongoDB", "AWS", "HIPAA"],
+    role: "Project Manager / Architect",
+    featured: true,
   },
   {
     name: "Brand Starter Kit",
-    domain: "AI SaaS",
-    domainColor: "indigo",
+    domain: "AI Branding SaaS",
+    status: "Delivered",
     description:
-      "Designed and delivered an AI-driven branding SaaS platform that generates brand statements, stories, and USPs using OpenAI. Built on a scalable three-tier architecture with full payment and communications integration.",
-    techStack: ["Next.js", "Python", "Strapi CMS", "OpenAI API", "Stripe", "SendGrid", "MongoDB"],
-    outcome: "Full-featured AI SaaS platform with automated brand content generation",
-    period: "Jan 2023 – Jan 2024",
+      "Designed and delivered an AI-powered branding platform on a scalable multi-tenant architecture, with payments and communication integrations.",
+    techStack: ["Next.js", "Node.js", "MongoDB", "LLM APIs"],
+    role: "Technical Project Manager",
+    featured: true,
   },
   {
-    name: "Rocketlane Custom Apps",
-    domain: "Enterprise",
-    domainColor: "amber",
+    name: "Rocketlane engagements",
+    domain: "Custom apps · Migrations",
+    status: "Ongoing",
     description:
-      "Led the complete technical lifecycle for custom application development extending Rocketlane's project management platform. Owned architecture, scope definition, and stakeholder alignment for modules covering projects, accounts, resources, and finance.",
-    techStack: ["Node.js", "React.js", "RESTful APIs", "Rocketlane Platform", "Third-party APIs"],
-    outcome: "Enterprise-grade platform extensions supporting full project & resource management",
-    period: "Ongoing",
+      "Custom apps on Project, Global and Customer Portal surfaces, plus data migrations from Zendesk, Zoho, Asana and Google Sheets, for clients including HighRadius, Staffbase and Phoenix DX. Owned the project plan, dependency tracking, RAID log, client follow-ups, invoicing and handover.",
+    techStack: ["Rocketlane SDK", "REST APIs", "Zendesk", "Zoho"],
+    role: "Technical Project Manager",
+    featured: true,
   },
   {
-    name: "Freshworks Portal",
-    domain: "Enterprise",
-    domainColor: "cyan",
+    name: "Clinovo",
+    domain: "Clinic SaaS · Discovery",
+    status: "In progress",
     description:
-      "Architected custom Freshworks support portal solutions aligned with enterprise client branding. Implemented responsive UI customizations, navigation flows, and dynamic frontend components within platform constraints.",
-    techStack: ["Liquid Templating", "HTML5", "CSS3", "JavaScript", "jQuery", "Freshworks API"],
-    outcome: "Scalable, brand-aligned enterprise support portals with improved UX",
-    period: "Multiple engagements",
+      "Multi-tenant clinic management platform, taken from product discovery through scope, user stories and build planning.",
+    techStack: ["Multi-tenant", "MERN", "Product discovery"],
+    role: "Project Manager",
+    featured: true,
   },
   {
-    name: "Fillable Solutions",
-    domain: "EdTech",
-    domainColor: "rose",
+    name: "Club Development Circle",
+    domain: "SaaS · United Kingdom",
+    status: "Delivered",
     description:
-      "Architected a full-stack childcare center management application. Designed the system architecture combining a modern Next.js frontend with a Ruby on Rails backend, leading all project management and technical planning.",
-    techStack: ["Next.js", "Ruby on Rails", "PostgreSQL"],
-    outcome: "Complete childcare management platform with full-stack architecture",
-    period: "2022 – 2023",
+      "UK SaaS platform. Managed delivery end to end: planning, client communication, team coordination and release.",
+    techStack: [],
+    role: "Project Manager",
+    url: "https://clubdevelopmentcircle.co.uk",
+    urlLabel: "clubdevelopmentcircle.co.uk",
+    featured: true,
+  },
+  {
+    name: "Hanu Reddy Realty",
+    domain: "Real estate · Web",
+    status: "Delivered",
+    description:
+      "Real estate website build with Strapi CMS, plus Zoho CRM setup for lead management.",
+    techStack: ["Strapi CMS", "Zoho CRM"],
+    role: "Project Manager",
+    url: "https://hanureddyrealty.com",
+    urlLabel: "hanureddyrealty.com",
+    featured: true,
   },
 ]
 
-export const CERTIFICATIONS: CertificationEntry[] = [
+/* ─── 05 How I deliver ──────────────────────────────────────── */
+
+export const PROCESS: ProcessStep[] = [
   {
-    type: "certification",
-    title: "Project Management Professional (PMP)",
-    issuer: "Project Management Institute (PMI)",
-    date: "Active",
+    step: "Step 1",
+    title: "Discover",
+    body: "Goals, users, constraints and what success looks like.",
+  },
+  {
+    step: "Step 2",
+    title: "Scope",
+    body: "Approach document, user stories and clear exclusions.",
+  },
+  {
+    step: "Step 3",
+    title: "Plan",
+    body: "Milestones, estimates, risks and owners agreed in writing.",
+  },
+  {
+    step: "Step 4",
+    title: "Build",
+    body: "Short sprints, demos and weekly RAG status.",
+  },
+  {
+    step: "Step 5",
+    title: "Hand over",
+    body: "Documentation, test cases and a team that can run it.",
+  },
+]
+
+/* ─── 06 AI in Delivery ─────────────────────────────────────── */
+
+export const AI_IN_DELIVERY: AIPractice[] = [
+  {
+    title: "AI-assisted coding",
+    body: "Use Claude Code to build, review and debug features for custom apps and web projects, so the team ships faster with fewer defects.",
+  },
+  {
+    title: "Skills and agent creation",
+    body: "Built reusable Claude Skills and agents for repeat PM work: scope and approach documents, user stories, MOMs and weekly status reports.",
+  },
+  {
+    title: "AI-built project plans",
+    body: "Use AI to draft project plans, task breakdowns, dependencies and RAID items, then review and correct them before sharing with clients.",
+  },
+  {
+    title: "Evaluating AI output",
+    body: "Check every AI result against requirements, test cases and source data. AI speeds up the work; the final call stays with the team.",
+  },
+  {
+    title: "Data security and privacy",
+    bullets: [
+      "Mask email IDs, client names, contact details and business data before pasting anything into an AI platform.",
+      "Never share credentials, API keys or production data with AI tools.",
+      "Use approved tools and secure settings only, in line with client NDAs and company security policy.",
+    ],
+  },
+]
+
+/* ─── 07 Skills ─────────────────────────────────────────────── */
+
+export const SKILLS: SkillGroup[] = [
+  {
+    label: "Frontend",
+    skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML / CSS", "Tailwind"],
+  },
+  {
+    label: "Backend and data",
+    skills: ["Node.js", "Express", "MongoDB", "PostgreSQL", "REST APIs", "Supabase"],
+  },
+  {
+    label: "Delivery and AI",
+    skills: ["PMP", "Scrum", "Kanban", "Jira", "Risk register", "LLM workflows"],
+  },
+]
+
+/* ─── 08 From LinkedIn ──────────────────────────────────────── */
+
+export const LINKEDIN_POSTS: LinkedInPost[] = [
+  {
+    title: "The status report nobody reads",
+    tag: "Delivery",
+    url: "https://www.linkedin.com/in/rinorobinson/recent-activity/all/",
+  },
+  {
+    title: "Estimating work you have never done",
+    tag: "Estimation",
+    url: "https://www.linkedin.com/in/rinorobinson/recent-activity/all/",
+  },
+  {
+    title: "Why my retros ran for 20 minutes",
+    tag: "Agile",
+    url: "https://www.linkedin.com/in/rinorobinson/recent-activity/all/",
+  },
+]
+
+/* ─── 09 Credentials ────────────────────────────────────────── */
+
+export const CREDENTIALS: CredentialEntry[] = [
+  {
+    kind: "certification",
+    label: "Certification · Active",
+    title: "Project Management Professional (PMP)®",
+    description: "Project Management Institute. Credential verified on Credly.",
     credentialUrl: "https://www.credly.com/badges/6cec4e42-8ae7-47fb-b12a-f3b1d3be8039",
-    description:
-      "Globally recognized certification demonstrating expertise in project management methodologies, frameworks, and best practices. Verified on Credly.",
-    icon: "Award",
   },
   {
-    type: "speaking",
-    title: "Speaker — Tech Summit 2025",
-    issuer: "Chennai, India",
-    date: "2025",
+    kind: "education",
+    label: "Education",
+    title: "Bachelor of Engineering",
     description:
-      "Delivered a technical presentation on the latest AI technologies and their practical applications in modern web architecture. Facilitated knowledge-sharing on AI integration strategies for full-stack applications.",
-    icon: "Mic2",
+      "Computer Science and Engineering. St. Xavier's Catholic College of Engineering, Tamil Nadu.",
   },
   {
-    type: "speaking",
-    title: "Speaker — MERN Tech Event",
-    issuer: "Chennai, India",
-    date: "2024",
+    kind: "speaking",
+    label: "Speaking · 2025",
+    title: "Tech Summit 2025",
     description:
-      "Presented a comprehensive deep-dive into MERN stack architecture patterns, advanced Node.js backend design, MongoDB optimization, and modern React/Next.js performance techniques.",
-    icon: "Presentation",
+      "Technical presentation on practical AI technologies and how teams can adopt them.",
+  },
+  {
+    kind: "speaking",
+    label: "Speaking · 2024",
+    title: "MERN Tech Event",
+    description:
+      "Session on the MERN stack: architecture patterns, Node.js, MongoDB and performance.",
   },
 ]
 
-export const EDUCATION: EducationEntry[] = [
-  {
-    degree: "Bachelor of Engineering",
-    field: "Computer Science & Engineering",
-    institution: "St. Xavier's Catholic College of Engineering",
-    year: "2013",
-    location: "Nagercoil, Tamil Nadu, India",
-  },
-  {
-    degree: "Higher Secondary Education",
-    field: "State Board",
-    institution: "St. Joseph's Hr. Sec School",
-    year: "2009",
-    location: "Thiruthuvapuram, Nagercoil, India",
-  },
-]
+/* ─── 10 Contact ────────────────────────────────────────────── */
 
-export const PM_COMPETENCIES = [
-  {
-    icon: "🔄",
-    title: "Agile Methodology",
-    subtitle: "Scrum | Kanban",
-    description: "Driving iterative delivery through Agile frameworks, sprint planning, and continuous improvement cycles.",
-  },
-  {
-    icon: "🤝",
-    title: "Team Co-ordination",
-    subtitle: "Effective Collaboration",
-    description: "Orchestrating cross-functional teams with clear ownership, communication cadences, and shared accountability.",
-  },
-  {
-    icon: "📋",
-    title: "Project Handling",
-    subtitle: "End-to-End Delivery",
-    description: "Owning full project lifecycle — from requirements and scoping through development, QA, UAT, and launch.",
-  },
-  {
-    icon: "👥",
-    title: "Team Leadership",
-    subtitle: "Handling 15 Team Members",
-    description: "Leading engineering squads of up to 15, fostering a culture of ownership, growth, and high performance.",
-  },
-  {
-    icon: "💬",
-    title: "Client Communication",
-    subtitle: "Stakeholder Management",
-    description: "Building trust with clients and stakeholders through transparent reporting, proactive updates, and executive-level communication.",
-  },
-  {
-    icon: "📊",
-    title: "Weekly Progress",
-    subtitle: "Reporting & Updates",
-    description: "Maintaining delivery visibility with structured status reports, risk logs, and milestone tracking dashboards.",
-  },
-  {
-    icon: "💰",
-    title: "Budgeting",
-    subtitle: "Budget & Cost Control",
-    description: "Managing project financials with precision — effort estimation, resource allocation, and cost variance analysis.",
-  },
-  {
-    icon: "⚡",
-    title: "Handling Escalations",
-    subtitle: "Conflict Resolution",
-    description: "De-escalating delivery blockers, mediating team conflicts, and turning critical issues into structured action plans.",
-  },
-]
+export const CONTACT_HEADLINE = "Let's talk about your delivery date."
 
-export const NAV_LINKS = [
-  { label: "About",        href: "#about"        },
-  { label: "Competencies", href: "#competencies" },
-  { label: "Experience",   href: "#experience"   },
-  { label: "Case studies", href: "#case-studies" },
-  { label: "Skills",       href: "#skills"       },
-  { label: "Notes",        href: "#notes"        },
+export const CONTACT_BODY =
+  "Whether you need an architect, a project manager or both, I am open to conversations about complex delivery challenges."
+
+/* ─── Navigation ────────────────────────────────────────────── */
+
+export const NAV_LINKS: NavLink[] = [
+  { label: "About", href: "#about" },
+  { label: "Expertise", href: "#expertise" },
+  { label: "Experience", href: "#experience" },
+  { label: "Work", href: "#work" },
+  { label: "LinkedIn", href: "#linkedin" },
+  { label: "Contact", href: "#contact" },
 ]

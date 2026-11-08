@@ -6,23 +6,23 @@ export interface ContactInfo {
   github: string
   githubUrl: string
   location: string
+  website: string
+  websiteUrl: string
 }
 
-export interface Stat {
+export interface HeroStat {
   value: string
   label: string
 }
 
-export type SkillLevel = "expert" | "proficient" | "familiar"
-
-export interface Skill {
-  name: string
-  level?: SkillLevel
+export interface AboutCard {
+  title: string
+  body: string
 }
 
-export interface SkillCategory {
-  label: string
-  skills: Skill[]
+export interface ExpertiseItem {
+  title: string
+  body: string
 }
 
 export interface ExperienceEntry {
@@ -36,38 +36,56 @@ export interface ExperienceEntry {
   achievements: string[]
 }
 
+export type ProjectStatus = "Delivered" | "Ongoing" | "In progress"
+
 export interface ProjectEntry {
   name: string
   domain: string
-  domainColor: "indigo" | "amber" | "green" | "rose" | "cyan"
+  status: ProjectStatus
   description: string
   techStack: string[]
-  outcome: string
-  period: string
+  role: string
+  /** Optional until a confirmed figure exists; the Result row is hidden without it. */
+  result?: string
+  url?: string
+  urlLabel?: string
+  featured?: boolean
 }
 
-export type CertType = "certification" | "speaking"
-
-export interface CertificationEntry {
-  type: CertType
+export interface ProcessStep {
+  step: string
   title: string
-  issuer: string
-  date: string
-  credentialUrl?: string
-  description: string
-  icon: string
+  body: string
 }
 
-export interface EducationEntry {
-  degree: string
-  field: string
-  institution: string
-  year: string
-  location: string
+export interface AIPractice {
+  title: string
+  body?: string
+  bullets?: string[]
 }
 
-export interface AboutMetric {
-  value: string
+export interface SkillGroup {
   label: string
+  skills: string[]
+}
+
+export interface LinkedInPost {
+  title: string
+  tag: string
+  url: string
+}
+
+export type CredentialKind = "certification" | "education" | "speaking"
+
+export interface CredentialEntry {
+  kind: CredentialKind
+  label: string
+  title: string
   description: string
+  credentialUrl?: string
+}
+
+export interface NavLink {
+  label: string
+  href: string
 }
